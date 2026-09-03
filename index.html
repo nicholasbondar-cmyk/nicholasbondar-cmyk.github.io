@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicholas Bondar — Mechanical Engineering</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<meta name="description" content="Nicholas Bondar — Harvard Mechanical Engineering. R&amp;D lead at Harvard Undergraduate Aerospace Collective – Rocketry, working on a 250 lbf regeneratively cooled liquid bipropellant rocket engine.">
+<style>
+:root{
+  --bg:#08090b; --bg-2:#0e1114; --panel:#12161a;
+  --line:#232a31; --line-2:#2e3740;
+  --txt:#e6eaee; --txt-2:#9aa5b1; --txt-3:#6b7783;
+  /* Accent colour. Change this one value to re-theme the whole site. */
+  --acc:#79a6d2; --ok:#5fbf8f; --warn:#d6a65c;
+  --mono:'IBM Plex Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px}
+.brand{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.brand span{color:var(--acc)}
+.navlinks{display:flex;gap:24px;flex-wrap:wrap}
+.navlinks a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-2);transition:color .15s}
+.navlinks a:hover{color:var(--acc);text-decoration:none}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* hero */
+header.hero{border-bottom:1px solid var(--line);
+  background:radial-gradient(900px 420px at 78% 34%,rgba(121,166,210,.09),transparent 62%),linear-gradient(180deg,var(--bg),var(--bg-2));
+  padding:72px 0 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin:0 0 16px}
+h1{font-size:30px;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;font-weight:600}
+.hero-role{font-size:15px;color:var(--txt-3);margin:0 0 22px}
+.hero-sub{font-size:17px;color:var(--txt-2);margin:0 0 16px;max-width:56ch}
+.hero-sub strong{color:var(--txt);font-weight:600}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 32px}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--txt-2);border:1px solid var(--line-2);border-radius:3px;padding:5px 10px;background:var(--panel)}
+.hero-img{padding-bottom:34px}
+.hero-img img{filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));mix-blend-mode:screen}
+.hero-cap{font-family:var(--mono);font-size:11px;color:var(--txt-3);letter-spacing:.06em;text-align:center;margin-top:6px}
+
+/* sections */
+section{padding:84px 0;border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:36px}
+.sec-num{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--acc);text-transform:uppercase;margin:0 0 12px}
+h2{font-size:clamp(27px,3.4vw,37px);letter-spacing:-.02em;margin:0 0 12px;font-weight:650;line-height:1.14}
+.proj-sub{color:var(--txt-3);font-size:14.5px;margin:0 0 14px}
+.sec-sub{color:var(--txt-2);font-size:17px;margin:0;max-width:74ch}
+h3{font-size:13px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--txt);margin:0 0 14px;font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--line)}
+h4{font-size:16px;margin:0 0 8px;font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 15px;color:var(--txt-2)}
+p strong,li strong{color:var(--txt);font-weight:600}
+p:last-child{margin-bottom:0}
+
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ok);border:1px solid rgba(95,191,143,.30);background:rgba(95,191,143,.08);border-radius:3px;padding:5px 11px;margin-bottom:18px}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.badge.amber{color:var(--warn);border-color:rgba(214,166,92,.32);background:rgba(214,166,92,.08)}
+.badge.amber::before{background:var(--warn)}
+
+/* process steps */
+.step{display:grid;grid-template-columns:64px 1fr;gap:26px;padding:38px 0;border-top:1px solid var(--line)}
+.step:first-of-type{border-top:1px solid var(--line-2)}
+@media(max-width:760px){.step{grid-template-columns:1fr;gap:14px}}
+.step-n{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--acc);padding-top:4px}
+.step-title{font-size:20px;font-weight:600;letter-spacing:-.015em;margin:0 0 6px;color:var(--txt)}
+.step-tool{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin:0 0 16px}
+
+/* specs */
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0}
+.spec{background:var(--bg-2);padding:18px 20px}
+.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-3);margin-bottom:7px}
+.spec dd{margin:0;font-family:var(--mono);font-size:19px;color:var(--txt);line-height:1.25}
+.spec dd small{display:block;font-size:11px;color:var(--txt-3);margin-top:4px;font-family:var(--mono)}
+
+/* panels */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}
+.cols.three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:840px){.cols,.cols.three{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);padding:24px}
+.panel ul{margin:0;padding-left:18px;color:var(--txt-2)}
+.panel li{margin-bottom:9px}
+.panel li:last-child{margin-bottom:0}
+ul.clean{list-style:none;padding-left:0}
+ul.clean li{padding-left:16px;position:relative}
+ul.clean li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:1px;background:var(--acc)}
+
+/* figures + gallery */
+figure{margin:28px 0;background:var(--bg-2);border:1px solid var(--line);padding:18px}
+figure img,figure video{margin:0 auto}
+figure img[data-zoom]{cursor:zoom-in}
+figcaption{font-family:var(--mono);font-size:11.5px;color:var(--txt-3);letter-spacing:.03em;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);line-height:1.6}
+figcaption b{color:var(--txt-2);font-weight:600}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
+.gallery.three{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:840px){.gallery,.gallery.three{grid-template-columns:1fr}}
+.gallery figure{margin:0;height:100%}
+.gallery img{width:100%;object-fit:contain;background:#fff}
+.gallery img.dark{background:transparent}
+figure.doc img{background:#fff}
+
+/* equations */
+.eq{background:var(--bg);border:1px solid var(--line);padding:20px 18px 16px;margin:18px 0;overflow-x:auto;text-align:center}
+.eq .katex{font-size:1.18em;color:var(--txt)}
+.eq .katex-display{margin:0}
+.eq .note{display:block;color:var(--txt-3);font-size:12.5px;margin-top:12px;font-family:var(--sans);line-height:1.55}
+
+/* callout */
+.callout{border:1px solid var(--line-2);border-left:3px solid var(--acc);background:var(--panel);padding:24px 26px;margin:28px 0}
+.callout.warn{border-left-color:var(--warn)}
+.callout .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:11px}
+.callout.warn .k{color:var(--warn)}
+
+/* tables */
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-3);font-weight:600;border-bottom:1px solid var(--line-2)}
+td{color:var(--txt-2)}
+td:first-child{color:var(--txt)}
+td.num{font-family:var(--mono);font-size:13.5px}
+tbody tr:last-child td{border-bottom:none}
+tr.final td{color:var(--txt)}
+
+/* document links */
+.docs{margin:22px 0;border-top:1px solid var(--line)}
+.docs a{display:flex;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid var(--line);
+  color:var(--txt);font-size:15px;text-decoration:none}
+.docs a:hover{color:var(--acc)}
+.docs a span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--txt-3);border:1px solid var(--line-2);border-radius:3px;padding:3px 7px;min-width:54px;text-align:center}
+
+/* placeholder */
+.ph{border:1px dashed var(--line-2);background:repeating-linear-gradient(45deg,transparent,transparent 9px,rgba(255,255,255,.014) 9px,rgba(255,255,255,.014) 18px);
+  min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;margin:24px 0;gap:6px}
+.ph .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-3)}
+.ph .hint{font-size:13px;color:var(--txt-3);max-width:54ch;line-height:1.6}
+
+.role{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:0 0 10px}
+.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px}
+@media(max-width:840px){.about-grid{grid-template-columns:1fr}}
+.contact a{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:13.5px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--txt)}
+.contact a:hover{color:var(--acc);text-decoration:none}
+.contact a span{color:var(--txt-3);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+
+footer{padding:36px 0 52px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--txt-3)}
+
+#lb{position:fixed;inset:0;z-index:200;background:rgba(4,5,6,.97);display:none;align-items:center;justify-content:center;padding:32px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:97vw;max-height:94vh;object-fit:contain}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Nicholas <span>Bondar</span></div>
+    <div class="navlinks">
+      <a href="#fud1">Rocket Engine</a>
+      <a href="#pangolin">Tracking Drone</a>
+      <a href="#robobee">RoboBee Wings</a>
+      <a href="#balancer">Balancing Robot</a>
+      <a href="#about">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Nicholas Bondar</h1>
+        <p class="hero-role">Mechanical Engineering, Harvard SEAS ’29</p>
+        <p class="hero-sub">
+          R&amp;D lead at <strong>Harvard Undergraduate Aerospace Collective – Rocketry</strong>,
+          where I designed a 250 lbf regeneratively cooled liquid bipropellant rocket engine.
+          I ran the combustion and cooling analysis, sized the injector, did the structural work
+          and the CAD, and machined the injector assembly. The design passed external review in
+          August 2026 and is going to print.
+        </p>
+        <p class="hero-sub">
+          At the Harvard Microrobotics Lab I work on the <strong>Pangolin</strong> wildlife
+          telemetry drone and on fabrication process development for <strong>RoboBee</strong>.
+        </p>
+        <div class="hero-meta">
+          <div class="tag">NASA CEA</div>
+          <div class="tag">RPA</div>
+          <div class="tag">Onshape</div>
+          <div class="tag">Onshape Simulation</div>
+          <div class="tag">Python</div>
+          <div class="tag">Manual lathe / mill</div>
+          <div class="tag">ArduPilot</div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="assets/engine_iso.png" alt="FUD-1 engine assembly, isometric CAD view" data-zoom>
+        <p class="hero-cap">FUD-1 — engine assembly, injector manifold through nozzle exit</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== FUD-1 ==================== -->
+<section id="fud1">
+  <div class="wrap">
+
+    <div class="sec-head">
+      <p class="sec-num">01 — Primary Project</p>
+      <div class="badge">Design review passed · Going to print</div>
+      <h2>250 lbf Liquid Bipropellant Rocket Engine</h2>
+      <p class="proj-sub">FUD-1 &ldquo;Forward Unto Dawn&rdquo; · Harvard Undergraduate Aerospace Collective – Rocketry</p>
+      <p class="sec-sub">
+        A 250 lbf nitrous oxide / 90&nbsp;% ethanol regeneratively cooled liquid bipropellant
+        rocket engine. Ground test article, 2&nbsp;s first burn extending to 5&nbsp;s. The sections
+        below follow the order the work was actually done: combustion analysis, geometry sizing,
+        verification, cooling, injector, structures, CAD, manufacturing, and test.
+      </p>
+    </div>
+
+    <dl class="specs">
+      <div class="spec"><dt>Thrust (SL)</dt><dd>250 lbf<small>1 112 N</small></dd></div>
+      <div class="spec"><dt>Chamber pressure</dt><dd>200 psia<small>1.379 MPa</small></dd></div>
+      <div class="spec"><dt>Propellants</dt><dd>N₂O / EtOH<small>90 / 10 ethanol–water</small></dd></div>
+      <div class="spec"><dt>O/F ratio</dt><dd>3.0<small>below peak-I<sub>sp</sub> O/F</small></dd></div>
+      <div class="spec"><dt>Delivered I<sub>sp</sub></dt><dd>180.9 s<small>RPA, finite area combustor</small></dd></div>
+      <div class="spec"><dt>Delivered C*</dt><dd>1 399 m/s<small>1773.9 N·s/kg effective c</small></dd></div>
+      <div class="spec"><dt>Total mass flow</dt><dd>0.627 kg/s<small>0.461 ox / 0.154 fuel / 0.013 film</small></dd></div>
+      <div class="spec"><dt>Throat / exit dia.</dt><dd>28.6 / 46.3<small>mm · A<sub>e</sub>/A<sub>t</sub> = 2.62</small></dd></div>
+      <div class="spec"><dt>Characteristic length</dt><dd>L* = 500<small>mm · A<sub>c</sub>/A<sub>t</sub> = 4.0</small></dd></div>
+      <div class="spec"><dt>Peak wall temp</dt><dd>636 K<small>gas side, at throat</small></dd></div>
+      <div class="spec"><dt>Cooling</dt><dd>Regen + film<small>38 axial channels, 2 % film</small></dd></div>
+      <div class="spec"><dt>Chamber material</dt><dd>SS316L<small>LPBF, single printed part</small></dd></div>
+    </dl>
+
+    <div class="docs">
+      <a href="assets/FUD-1_Design_Review.pdf" target="_blank" rel="noopener">
+        <span>PDF</span> Design review presentation</a>
+      <a href="https://docs.google.com/spreadsheets/d/1vxZtw8KdOl2sS_MApdxROAf_jyuGXkeqoO_olBFN8bg/edit?gid=0#gid=0" target="_blank" rel="noopener">
+        <span>Sheet</span> Design calculations, injector sizing, and structural analysis</a>
+      <a href="assets/FUD-1_SOP.pdf" target="_blank" rel="noopener">
+        <span>PDF</span> Standard operating procedure, submitted to Harvard EHS</a>
+    </div>
+
+    <figure>
+      <img src="assets/engine_section.png" alt="FUD-1 section view through the chamber, pintle, and nozzle" data-zoom>
+      <figcaption><b>Section view.</b> The pintle post runs down the centerline carrying N₂O and
+      exits radially at the tip. Ethanol arrives from the regen jacket outlet manifold and injects
+      axially through the annulus around the pintle. Cooling channels run the full length of the
+      chamber and nozzle, flowing nozzle-end to injector-end so the coolant is coldest where heat
+      flux is highest.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/chamber_cad_iso.png" alt="Printed chamber and nozzle seen from the injector end" data-zoom>
+      <figcaption><b>The printed part on its own.</b> Chamber and nozzle as a single LPBF part, seen
+      from the injector end with all 38 cooling channels visible at the face, plus the bolt circle,
+      instrumentation bosses, and the collector manifold ring at the nozzle end.</figcaption>
+    </figure>
+
+    <!-- ============ DESIGN PROCESS ============ -->
+    <h3 style="margin-top:52px">Design Process</h3>
+
+    <!-- 01 -->
+    <div class="step">
+      <div class="step-n">01</div>
+      <div>
+        <h4 class="step-title">Combustion analysis and propellant selection</h4>
+        <p class="step-tool">NASA CEA · RocketCEA · Google Sheets</p>
+        <p>
+          I started in NASA CEA to get equilibrium combustion properties across a range of O/F
+          ratios for nitrous oxide and ethanol at 200 psia. Two decisions came out of that sweep.
+        </p>
+        <p>
+          <strong>Fuel blend.</strong> Adding 10&nbsp;% water by mass lowered combustion temperature
+          from 2 945 K to 2 868 K and lowered exhaust molecular weight from about 25 to 23.1.
+          Because I<sub>sp</sub> scales with √(T/M), the drop in molecular weight offsets the drop
+          in temperature — ideal I<sub>sp</sub> came out slightly higher while the thermal
+          environment got easier. Water also has roughly twice the specific heat of ethanol, so it
+          carries more heat on the coolant side as well.
+        </p>
+        <p>
+          <strong>O/F ratio.</strong> Peak I<sub>sp</sub> sits near O/F 4.2–4.4. I first sized at
+          4.1, but the cooling analysis in step 4 came back at roughly 1 400 K on the throat wall,
+          which SS316L cannot survive. Running fuel-rich at O/F 3.0 lowers flame temperature and
+          frees up fuel mass flow for regenerative and film cooling. The I<sub>sp</sub> cost is
+          small next to the thermal margin gained.
+        </p>
+        <figure class="doc">
+          <img src="assets/cea_spreadsheet.png" alt="Sizing spreadsheet alongside NASA CEA output and design notes" data-zoom>
+          <figcaption><b>Sizing spreadsheet and CEA output.</b> Locked parameters on the left,
+          raw CEA equilibrium output in the center, reasoning notes on the right. CEA is running
+          in infinite-area-combustor mode here — the discrepancy that creates is resolved in
+          step 3.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="step">
+      <div class="step-n">02</div>
+      <div>
+        <h4 class="step-title">Geometry sizing spreadsheet</h4>
+        <p class="step-tool">Google Sheets, derived from CEA outputs</p>
+        <p>
+          With combustion properties fixed, I sized the chamber and nozzle from first principles
+          rather than reading dimensions out of a solver. Throat area from required mass flow and
+          C*, exit area from the expansion ratio at sea level, chamber volume from a selected
+          characteristic length, mass flow split by O/F. Keeping it in a spreadsheet meant changing
+          one input — O/F, film cooling fraction, thrust — updated every downstream dimension.
+        </p>
+        <div class="eq">
+          $$\dot{m}=\frac{F}{I_{sp}\,g_0} \qquad A_t=\frac{\dot{m}\,C^{*}}{P_c} \qquad V_c=L^{*}A_t$$
+          <span class="note">Mass flow from thrust and specific impulse, throat area from mass flow
+          and characteristic velocity, chamber volume from the characteristic length.</span>
+        </div>
+        <p>
+          I set L* = 500 mm and A<sub>c</sub>/A<sub>t</sub> = 4.0. The contraction ratio matters
+          more than it first looks, because it sets chamber gas velocity, which feeds straight into
+          the finite-area-combustor correction in the next step.
+        </p>
+        <figure class="doc">
+          <img src="assets/early_sizing_of41.png" alt="Earlier sizing pass comparing 100 lbf and 250 lbf at O/F 4.1" data-zoom>
+          <figcaption><b>Earlier sizing pass, superseded.</b> A 100 lbf and 250 lbf comparison at
+          O/F 4.1, kept in the sheet for traceability. The 100 lbf case was dropped because the fuel
+          orifices came out too small to drill reliably; the O/F 4.1 case was dropped on thermal
+          grounds. Both are marked as not current.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="step">
+      <div class="step-n">03</div>
+      <div>
+        <h4 class="step-title">Verification in RPA</h4>
+        <p class="step-tool">Rocket Propulsion Analysis, finite area combustor mode</p>
+        <p>
+          I rebuilt the engine in RPA to check the spreadsheet. My hand calculations landed within
+          5&nbsp;% of RPA, but RPA returned lower C* and I<sub>sp</sub> than CEA had, which I first
+          treated as an error in one of the two models.
+        </p>
+        <div class="callout">
+          <div class="k">Why the two disagreed</div>
+          <p>
+            CEA assumes an <strong>infinite area combustor</strong> — the gas is stationary at the
+            injector face. I had RPA set as a <strong>finite area combustor</strong> at
+            A<sub>c</sub>/A<sub>t</sub> = 4.0, which accounts for the gas already moving as it
+            reaches the nozzle inlet. That momentum has to come from somewhere, and it shows up as
+            reduced C* and I<sub>sp</sub>. Neither tool was wrong; they model different assumptions,
+            and a real chamber performs slightly worse than an infinite one. FAC is the right
+            assumption for real hardware, so I carried RPA's numbers forward.
+          </p>
+        </div>
+        <p>
+          From there I designed against RPA's <strong>estimated (delivered)</strong> performance
+          rather than ideal — 180.9 s I<sub>sp</sub>, 1 399 m/s C*. Sizing an injector or a feed
+          system against ideal numbers produces hardware that underdelivers on the stand.
+        </p>
+        <figure class="doc">
+          <img src="assets/rpa_geometry.png" alt="RPA geometry output and performance summary" data-zoom>
+          <figcaption><b>RPA geometry and performance.</b> Final contour parameters — D<sub>c</sub>
+          57.24 mm, D<sub>t</sub> 28.62 mm, D<sub>e</sub> 46.34 mm, L<sub>c</sub> 140.29 mm,
+          parabolic nozzle at 13.79° / 8.00°. Exported as DXF for CAD. The orange note records the
+          cooling channel height change described in step 4.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="step">
+      <div class="step-n">04</div>
+      <div>
+        <h4 class="step-title">Regenerative cooling design</h4>
+        <p class="step-tool">RPA thermal module, iterated against geometry</p>
+        <p>
+          The cooling design went through the most iterations. I started with a configuration that
+          ran far too hot for the material and changed one variable at a time until the wall
+          temperature came down to something SS316L can handle.
+        </p>
+        <table>
+          <thead><tr><th>Configuration</th><th>Max T<sub>wg</sub> at throat</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>No film cooling, O/F 4.1, SS316L</td><td class="num">~1 400 K</td><td>Rejected</td></tr>
+            <tr><td>2 % film cooling, O/F 4.1</td><td class="num">910 K</td><td>Marginal</td></tr>
+            <tr><td>O/F 3.0, 90/10 blend, helical channels</td><td class="num">625 K</td><td>Unprintable geometry</td></tr>
+            <tr><td>O/F 3.0, 90/10, axial, 1.5 mm channel height</td><td class="num">650 K</td><td>Coolant too slow</td></tr>
+            <tr class="final"><td>O/F 3.0, 90/10, axial, 1.2 mm channel height</td><td class="num">636 K</td><td>Selected</td></tr>
+            <tr><td>Conservative bounding case</td><td class="num">750 K</td><td>Used for stress</td></tr>
+          </tbody>
+        </table>
+        <div class="cols">
+          <div class="panel">
+            <h4>Final channel geometry</h4>
+            <ul class="clean">
+              <li>38 axial channels, 1.5 mm wide × <strong>1.2 mm tall</strong></li>
+              <li>Modelled as <strong>arc wedges</strong> following the wall curvature, not rectangles</li>
+              <li>1.0 mm inner wall, 2.0 mm outer wall, 3.4 mm rib between channels</li>
+              <li>Hydraulic diameter 1.33 mm, channel length ~185 mm, L/D ≈ 140:1</li>
+              <li>Ethanol coolant, flowing nozzle-end to injector-end</li>
+              <li>2 % of total mass flow (8 % of fuel flow) to film cooling</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Changing the channel height</h4>
+            <p>
+              At 1.5 mm tall the coolant was moving under 2.5 m/s, which put the flow near the
+              laminar boundary. Laminar flow in a cooling channel is a real problem — without
+              turbulent mixing, only the fluid adjacent to the wall picks up heat and the bulk of
+              the coolant does no work.
+            </p>
+            <p style="margin-top:12px">
+              Reducing height to 1.2 mm cut the flow area and raised velocity, moving the flow
+              firmly into the transitional-turbulent range. Peak wall temperature came down
+              accordingly. I stopped at 1.2 rather than 0.8 mm because 0.8 sits at the minimum
+              printable feature size and makes powder removal considerably harder.
+            </p>
+          </div>
+        </div>
+        <figure class="doc">
+          <img src="assets/rpa_thermal_table.png" alt="RPA axial thermal analysis table" data-zoom>
+          <figcaption><b>RPA axial thermal results.</b> Station-by-station heat flux and wall
+          temperatures. Peak at 139.28 mm: heat flux 1 729 kW/m², gas-side wall 635.98 K,
+          coolant-side wall 527.91 K, bulk coolant 307.38 K. The 108 K drop across the 1 mm inner
+          wall matches a hand conduction check of q·t/k to the degree.</figcaption>
+        </figure>
+        <figure class="doc">
+          <img src="assets/thermal_fixes_notes.png" alt="Design notes on the thermal fixes" data-zoom>
+          <figcaption><b>Design notes.</b> The three changes that took the throat wall from
+          roughly 1 400 K to survivable, plus the helical channel approach struck through as a
+          manufacturing dead end — wall thickness at the throat fell below what LPBF can hold.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="step">
+      <div class="step-n">05</div>
+      <div>
+        <h4 class="step-title">Injector design</h4>
+        <p class="step-tool">Spreadsheet sizing, Cheng et al. (2019) mixing model</p>
+        <p>
+          FUD-1 uses an ox-centered pintle. Nitrous flows down the hollow pintle post and exits
+          radially through <strong>24 holes at 0.81 mm</strong>. Ethanol arrives from the regen
+          outlet manifold and injects axially through the annulus around the pintle. Film coolant
+          is split off before the annulus and fed through <strong>6 holes at 0.36 mm</strong> around
+          the chamber perimeter.
+        </p>
+        <p>
+          The configuration started fuel-centered and I flipped it for manufacturability. Ethanol
+          already exits the cooling channels on the outside of the chamber, so feeding it into an
+          annulus is a short path; routing it into the center of the post would mean crossing the
+          ox path. At O/F 3.0 with film cooling, the wall impingement concern that motivated
+          fuel-centering is much reduced.
+        </p>
+        <div class="cols">
+          <div class="panel">
+            <h4>Orifice sizing</h4>
+            <div class="eq" style="margin-top:0">
+              $$A=\frac{\dot{m}}{C_d\sqrt{2\rho\,\Delta P}}$$
+            </div>
+            <ul class="clean">
+              <li>Ox: 920 psia injection, <strong>720 psi ΔP</strong>, C<sub>d</sub> = 0.45</li>
+              <li>Fuel: 315 psia injection, <strong>115 psi ΔP</strong>, C<sub>d</sub> = 0.6</li>
+              <li>C<sub>d</sub> = 0.45 on the ox side follows the MIT Rocket Team's simplified substitute for a full two-phase model — nitrous partially flashes to gas before it reaches the chamber</li>
+              <li>Fuel annulus gap: <strong>0.154 mm</strong> on a 15 mm pintle</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Mixing model</h4>
+            <p>
+              For a continuous-slot pintle the standard approach is total momentum ratio. This
+              design uses discrete orifices, so each jet only interacts with a strip of fuel film
+              equal to the hole diameter. Following Cheng et al., I used local momentum ratio:
+            </p>
+            <div class="eq">
+              $$\mathrm{LMR}=\frac{\dot{m}_j v_j}{\left(d/w\right)\dot{m}_f v_f}
+              \qquad \theta=\arccos\!\left(\frac{1}{1+\mathrm{LMR}}\right)$$
+              <span class="note">Here \(d\) is the jet hole diameter and \(w\) the annular film
+              width. Velocities come from Bernoulli, \(v=\sqrt{2\Delta P/\rho}\).</span>
+            </div>
+            <p>Target LMR 1.5–3, spray angle 50–70°. Standoff at L<sub>p</sub>/D<sub>p</sub> = 1.0–1.5.</p>
+          </div>
+        </div>
+        <figure class="doc">
+          <img src="assets/injector_sizing.png" alt="Injector sizing spreadsheet for fuel annulus, oxidizer orifices, and film cooling" data-zoom>
+          <figcaption><b>Injector sizing.</b> Three separate circuits sized off the same orifice
+          equation — fuel annulus, 24 oxidizer radial holes, and 6 film cooling holes — each with
+          its own pressure, density, and discharge coefficient.</figcaption>
+        </figure>
+        <div class="callout warn">
+          <div class="k">Unresolved: the fuel annulus gap</div>
+          <p>
+            The 0.154 mm annulus gap is very tight, and the harder constraint is concentricity
+            rather than the dimension itself: a pintle that sits off-center produces non-uniform
+            circumferential flow no matter how well the gap is held. Since gap = A/(πD), increasing
+            pintle diameter makes it worse rather than better, which is counterintuitive until you
+            write it down. Options remain reducing pintle diameter, lowering fuel ΔP further, or
+            moving to discrete fuel orifices and relying on the generous L* for downstream mixing.
+            I raised this proactively in the design review.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="step">
+      <div class="step-n">06</div>
+      <div>
+        <h4 class="step-title">Structural analysis</h4>
+        <p class="step-tool">Hand calculations, checked against Onshape Simulation</p>
+        <p>
+          Once geometry and thermal results settled I went through the pressure-bearing structure by
+          hand. Loads are modest — 200 psi chamber, 300 psi coolant, 250 lbf axial — so closed-form
+          checks are appropriate and faster than meshing everything. I ran four hoop stress cases,
+          using 316L yield of <strong>170 MPa at 300 K</strong> for the outer wall (which sits at
+          coolant temperature) and <strong>110 MPa at 580 K</strong> for the inner wall.
+        </p>
+        <div class="eq">
+          $$\sigma_h=\frac{p\,r}{t} \qquad t_{\min}=\frac{p\,r}{\sigma_{\text{allow}}}$$
+        </div>
+        <table>
+          <thead><tr><th>Case</th><th>t</th><th>Stress</th><th>SF</th></tr></thead>
+          <tbody>
+            <tr><td>Outer wall, pressurized coolant — the actual load path</td><td class="num">2.0 mm</td><td class="num">32.9 MPa</td><td class="num">5.17</td></tr>
+            <tr><td>Inner wall, no coolant, no ribs — worst-case bound</td><td class="num">1.0 mm</td><td class="num">40.2 MPa</td><td class="num">2.74</td></tr>
+            <tr><td>Inner wall, net compression from coolant</td><td class="num">1.0 mm</td><td class="num">20.1 MPa</td><td class="num">5.48</td></tr>
+            <tr><td>No coolant, composite wall</td><td class="num">3.0 mm</td><td class="num">13.8 MPa</td><td class="num">7.95</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The outer wall case describes normal operation. The other three are bounding cases
+          covering what happens if the coolant stops doing its job, so they should be read as limits
+          rather than as a range of expected values.
+        </p>
+        <p>
+          One correction along the way: I originally used 4.2 mm of composite wall by summing 1.0
+          inner + 1.2 channel + 2.0 outer. The 1.2 mm channel is void, not metal, so only 3.0 mm
+          carries load. Also checked: local bending of the inner wall between ribs, treated as a
+          fixed-fixed strip over the 1.5 mm channel span, comes out near <strong>0.8 MPa</strong> —
+          three orders of magnitude below the global case, so the ribs are doing their job. Injector
+          bolts are 8 × M3 at 444 N per bolt against 2 264 N yield, SF 5.1.
+        </p>
+        <div class="callout warn">
+          <div class="k">Thermal stress</div>
+          <div class="eq" style="margin-top:0">
+            $$\sigma=\frac{E\,\alpha\,\Delta T}{2\left(1-\nu\right)}$$
+          </div>
+          <p>
+            With E = 175 GPa, α = 1.8×10⁻⁵ K⁻¹, ΔT = 108 K across the inner wall and ν = 0.3, the
+            thermal stress comes out at <strong>243 MPa</strong> against 110 MPa yield. The hot wall
+            yields in compression.
+          </p>
+          <p style="margin-top:12px">
+            This is normal for regeneratively cooled chambers and does not put the engine at risk
+            of bursting, since hoop stress is only 40 MPa against a 110 MPa allowable. What it does
+            mean is that the life of the chamber is governed by low-cycle fatigue rather than by
+            static strength. Over the handful of 2–5 second burns planned here that is not a
+            concern, but it would be for an engine meant to run hundreds of cycles. The 243 MPa
+            figure also assumes the wall is perfectly restrained, and in reality some of the
+            expansion is free, so the true stress is lower.
+          </p>
+        </div>
+        <figure class="doc">
+          <img src="assets/hoop_thermal_stress.png" alt="Hoop stress analysis across four cases plus thermal stress" data-zoom>
+          <figcaption><b>Structural spreadsheet.</b> Four hoop stress cases with the assumption
+          behind each, plus the thermal stress block. Every case carries its own material allowable
+          rather than a single yield number, because the inner and outer walls sit at very different
+          temperatures.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="step">
+      <div class="step-n">07</div>
+      <div>
+        <h4 class="step-title">CAD</h4>
+        <p class="step-tool">Onshape</p>
+        <p>
+          CAD only started once RPA geometry was final, so the model was built against fixed numbers
+          rather than moving ones. Workflow: import the RPA contour DXF, revolve, offset the inner
+          wall, sketch the channel cross-section, extrude axially, circular pattern 38 times,
+          boolean, then add the inlet and outlet collector manifold rings at each end.
+        </p>
+        <p>
+          I modelled the channels as arc wedges following the wall curvature rather than plain
+          rectangles, which keeps the inner wall thickness genuinely constant around the
+          circumference instead of only at the channel centerline.
+        </p>
+        <figure>
+          <img src="assets/teststand_cad.png" alt="Test stand CAD with engine, valve train, and nitrous bottle mounted" data-zoom>
+          <figcaption><b>Test stand assembly.</b> Engine fires horizontally off a steel thrust plate
+          that doubles as the primary blast shield, on an aluminum extrusion frame. Solenoid valves
+          and the run tank mount to the same structure.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="step">
+      <div class="step-n">08</div>
+      <div>
+        <h4 class="step-title">Test stand structural analysis</h4>
+        <p class="step-tool">Onshape Simulation</p>
+        <p>
+          The stand carries a person-safety load path, so it got a simulation rather than an
+          assumption. I modelled the full assembly — extrusion frame, gussets, and the steel thrust
+          plate — under the 250 lbf thrust load to confirm both that the structure holds and that it
+          is stiff enough not to corrupt the load cell readings. The thrust plate turns out to be
+          the compliant element; the frame carries the load with very little participation in the
+          deflection.
+        </p>
+        <div class="gallery">
+          <figure>
+            <img src="assets/teststand_fea_vonmises.png" alt="Test stand von Mises stress result" data-zoom>
+            <figcaption><b>Von Mises stress.</b> Uniformly low across the structure, with good
+            margin everywhere in the load path.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/teststand_fea_displacement.png" alt="Test stand displacement magnitude result" data-zoom>
+            <figcaption><b>Displacement, 50× scale.</b> Peak deflection <b>5.1×10⁻³ in</b> at the
+            top center of the thrust plate, which is the expected mode — the plate bends as a panel
+            between its supports.</figcaption>
+          </figure>
+        </div>
+        <p>
+          The load cells matter more than the frame stiffness. They read force on one axis only, so
+          the engine plate floats on three ball-tipped mounts in a triangular pattern with the
+          centroid on the thrust axis, and propellant lines and instrumentation wiring have to be
+          flexible enough not to introduce side loads into the measurement.
+        </p>
+      </div>
+    </div>
+
+    <!-- 09 -->
+    <div class="step">
+      <div class="step-n">09</div>
+      <div>
+        <h4 class="step-title">Manufacturing</h4>
+        <p class="step-tool">LPBF SS316L, manual lathe and mill, CNC</p>
+        <p>
+          The chamber and nozzle print as a single SS316L part with the cooling channels printed in.
+          All threads, sealing faces, and small holes are post-machined — printing threads directly
+          adds thousands to the quote, and post-machining printed parts is standard practice.
+        </p>
+        <figure>
+          <img src="assets/injector_plate_photo.jpg" alt="Machined aluminum injector plate with stainless pintle installed" data-zoom>
+          <figcaption><b>Injector plate and pintle, machined.</b> Aluminum 6061 plate with three
+          mounting lugs, the concentric O-ring lands turned in, and both drilled hole rings visible —
+          the outer ring is film cooling, the inner is the fuel circuit. The stainless pintle is
+          installed at center with its 24 radial oxidizer holes.</figcaption>
+        </figure>
+        <div class="gallery">
+          <figure>
+            <video src="assets/machining_mill.mp4" poster="assets/machining_mill_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+            <figcaption><b>Milling the injector flange.</b> Aluminum practice and production work on
+            the manual mill, cutting the pocket and profile.</figcaption>
+          </figure>
+          <figure>
+            <video src="assets/machining_lathe.mp4" poster="assets/machining_lathe_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+            <figcaption><b>Turning on the lathe.</b> Pintle work in stainless, held in a 4-jaw chuck
+            for concentricity.</figcaption>
+          </figure>
+        </div>
+        <div class="cols">
+          <div class="panel">
+            <h4>How the parts were made</h4>
+            <ul class="clean">
+              <li>Pintle turned from stainless bar, 4-jaw chuck for concentricity, radial holes indexed on the mill with a rotary table</li>
+              <li>Injector plate and flange from 1/2" Al 6061 plate, dimensioned to exactly 12.7 mm so raw stock thickness is used as-is</li>
+              <li>Order of operations fixed in advance: face, square, drill and ream, lathe the pocket and O-ring groove, then CNC the outer profile</li>
+              <li>Practice parts machined in aluminum first to validate geometry and fit before cutting final stock</li>
+              <li>Film cooling holes drilled by counterboring from outside to within 0.5 mm of the wall, then breaking through with a carbide micro-bit — short remaining depth keeps the bit from snapping</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Tapping the pintle, and what I changed after</h4>
+            <p>
+              While hand-tapping an NPT thread into the pintle, the part spun in the collet block
+              and the thread was damaged. The collet held fine for cutting loads but not for tapping
+              torque, which comes on suddenly and acts at a large radius.
+            </p>
+            <p style="margin-top:12px">
+              What I took from it was a sense of how much clamping force tapping actually needs,
+              which I hadn't thought about carefully enough beforehand. The printed chamber also has
+              NPT ports that need tapping, and it is a much more awkward part to hold — thin walls
+              and no flat surfaces. So I designed holding features into it directly:
+              <strong>flat feet and square clamping pads on the chamber body</strong>, with matching
+              pockets machined into 45° aluminum soft jaws. The pads locate the part and the pockets
+              take the tapping torque in bearing instead of relying on friction. I also settled on a
+              few rules for the operation: drill on the mill, hand tap only, orient the part so
+              tapping torque pushes it into the fixed jaw, and never clamp across the 2 mm chamber
+              wall.
+            </p>
+          </div>
+        </div>
+        <div class="callout warn">
+          <div class="k">Powder left in the channels</div>
+          <p>
+            Both LPBF vendors disclaim that unsintered powder may remain in internal features. For
+            1.5 × 1.2 mm channels at 140:1 length-to-diameter, that means restricted coolant flow
+            and metal particulate in the propellant path. At a 1.33 mm hydraulic diameter against
+            15–45 µm powder the geometry itself is not the problem, and choosing axial over helical
+            channels is the single decision that most helps depowdering.
+          </p>
+          <p style="margin-top:12px">
+            The harder problem is <strong>detection</strong>. One blocked channel out of 38 is
+            2.6&nbsp;% of flow area and shifts pressure drop by roughly 5&nbsp;%, which is inside
+            prediction uncertainty; a mass check is worse still, at a few grams on a part over a
+            kilogram. Neither obvious verification method finds it. The method that does work is
+            flowing warm water and imaging the outside with an IR camera — 316L conducts poorly
+            enough at 16 W/m·K that a blocked channel shows up as a cold streak.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="step">
+      <div class="step-n">10</div>
+      <div>
+        <h4 class="step-title">External design review</h4>
+        <p class="step-tool">Two outside reviewers, August 2026</p>
+        <p>
+          Before committing to an irreversible print I took the design through review with two
+          outside engineers: a former fluids lead at Firefly Aerospace, and an engineer who works
+          with Relativity Space. I scheduled the review specifically because the print had not been
+          ordered yet, and I split the agenda into what was already frozen and what was still open
+          so their time went to the parts I could still change.
+        </p>
+        <div class="cols">
+          <div class="panel">
+            <h4>Changes I made afterward</h4>
+            <ul class="clean">
+              <li><strong>0.2–0.3 mm fillets on all four internal channel corners.</strong> Costs 2–4 % of flow area, improves printability, and relieves the corner where the 243 MPa thermal stress concentrates</li>
+              <li>Clamping pads and flat feet added to the chamber body for machining fixturing</li>
+              <li>Purge ports in both collector manifold rings</li>
+              <li>Build orientation to be specified with the vendor rather than left to them</li>
+              <li>A witness coupon with the same channel cross-section on the same build</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>An open question</h4>
+            <p>
+              The reviewer raised <strong>ethanol boiling in the cooling channels</strong>. At the
+              coolant-side wall temperature of 528 K and channel pressure of 2.19 MPa, ethanol's
+              saturation temperature is around 460–470 K, so boiling is plausible.
+            </p>
+            <p style="margin-top:12px">
+              Two-phase flow raising pressure drop is the manageable version — the stress margins
+              cover it. The version that matters is <strong>critical heat flux at the throat</strong>:
+              if bubbles merge into a continuous vapor film, the heat transfer coefficient collapses
+              in milliseconds and the throat burns through. No amount of structural margin helps
+              with that. Whether the throat sits below CHF is currently unanswered, and it is the
+              open item I most want closed before hot fire.
+            </p>
+          </div>
+        </div>
+        <p>
+          There is also a feedback path worth naming: fuel goes from a ~350 psi regulator to a 315
+          psia injector, so the whole tank-to-injector pressure budget is about 35 psi. If two-phase
+          flow triples the regen circuit's share, injector pressure falls, fuel flow falls, the
+          chamber runs oxidizer-rich and hotter, and the boiling gets worse. The cheap mitigation is
+          instrumenting regen ΔP by difference between the two transducers already in the design and
+          making out-of-band ΔP an <strong>abort trigger</strong> rather than a post-test finding.
+        </p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="step">
+      <div class="step-n">11</div>
+      <div>
+        <h4 class="step-title">Test plan and safety approval</h4>
+        <p class="step-tool">Cold flow before hot fire · Harvard EHS standard operating procedure</p>
+        <p>
+          The team's previous liquid engine, Mojave Sphinx, failed at its static fire attempt. The
+          documented failure modes were the starting point for FUD-1's test requirements, so each
+          one is a constraint on the design or the procedure rather than a lesson noted afterward.
+        </p>
+        <table>
+          <thead><tr><th>Mojave Sphinx failure mode</th><th>FUD-1 requirement</th></tr></thead>
+          <tbody>
+            <tr><td>No cold flow test before hot fire</td><td>Cold flow with mock propellants — water for fuel, CO₂ for oxidizer — before any hot fire, to measure spray angle against prediction, find manifold fill times, and confirm no leaks</td></tr>
+            <tr><td>Wrong fitting sizes found on test day</td><td>Complete fit-check of every fitting at assembly, weeks ahead</td></tr>
+            <tr><td>PTFE tape on high-pressure oxidizer threads</td><td>AN flare and O-ring face seals throughout. No tape on oxidizer service — liquid nitrous flashes at any restriction and the expanding two-phase flow shreds unbonded tape into the stream</td></tr>
+            <tr><td>Nitrous drawn from the vapor phase</td><td>Siphon-tube bottle, with orientation and liquid draw verified during cold flow</td></tr>
+            <tr><td>Inadequate test stand</td><td>Purpose-built stand, structurally checked, with remote firing and camera observation</td></tr>
+          </tbody>
+        </table>
+        <div class="cols">
+          <div class="panel">
+            <h4>Burn sequence</h4>
+            <ul class="clean">
+              <li><strong>Igniter test</strong> — verify the solid igniter fires for the required duration</li>
+              <li><strong>2 s hot fire</strong> — verify ignition, choked flow at the throat, and supersonic expansion. Kept short deliberately: if regenerative cooling does not behave as modelled, 2 s is not long enough to burn through</li>
+              <li><strong>5 s hot fires</strong> — verify the engine sustains the thermal environment rather than merely surviving it</li>
+              <li>Fuel-lead startup, fuel opening 50–100 ms ahead of oxidizer</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>EHS standard operating procedure</h4>
+            <p>
+              I co-wrote the standard operating procedure for Harvard EHS approval with the team's
+              chief engineer. It documents propellant quantities and storage, transport, PPE by
+              project phase, machine-shop training status by tool and risk level, hazard
+              classification for N₂O, CO₂, nitrogen and anhydrous ethanol, emergency planning, and
+              the site plan — cold flow on campus, static fire off-site at a field in Connecticut.
+            </p>
+            <p style="margin-top:12px">
+              Abort logic is part of the safety case, not an afterthought: remote valve actuation
+              with automatic shutoff on overpressure or on an unexpected pressure drop.
+            </p>
+          </div>
+        </div>
+        <p style="margin-top:20px">
+          The full standard operating procedure is
+          <a href="assets/FUD-1_SOP.pdf" target="_blank" rel="noopener">linked at the top of this
+          section</a> along with the design review deck.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== PANGOLIN ==================== -->
+<section id="pangolin">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-num">02 — Research</p>
+      <div class="badge">Flying · 429 m tag detection</div>
+      <h2>VHF Wildlife Tracking Drone</h2>
+      <p class="proj-sub">Pangolin · Undergraduate Researcher, Harvard Microrobotics Lab</p>
+      <p class="sec-sub">
+        A hexacopter carrying a 150 MHz VHF receiver, built to locate pangolins wearing radio
+        tracking tags. Conventional VHF wildlife tracking is done on foot with a handheld Yagi,
+        which is slow and range-limited by terrain. Putting the receiver in the air raises the
+        antenna and extends line of sight; the eventual goal is airborne direction finding using
+        antenna azimuth to fix an animal's position. The aircraft is being prepared for field
+        deployment in Nigeria.
+      </p>
+    </div>
+
+    <p>
+      I took this project over from a student who left the lab, inheriting a partially built
+      aircraft that had never been powered on and a receiver stack nobody currently in the lab knew
+      how to operate. Getting it from that state to a flying aircraft, a printed antenna mount, and
+      a receiver holding a tag at <strong>429 m</strong> on foot was the work.
+    </p>
+
+    <div class="gallery">
+      <figure>
+        <video src="assets/pangolin_flight.mp4" poster="assets/pangolin_flight_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>First flight.</b> Indoor hover in Stabilize mode, flown off a padded landing
+        area with a spotter present. First time the aircraft had left the ground.</figcaption>
+      </figure>
+      <figure>
+        <video src="assets/pangolin_bench_test.mp4" poster="assets/pangolin_bench_test_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>Bench testing, props off.</b> Running the full arm-and-throttle chain against
+        QGroundControl to verify motor position, rotation direction, and ESC response before anything
+        was allowed to spin under load.</figcaption>
+      </figure>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="assets/pangolin_tx_bench.jpg" alt="RadioMaster Pocket transmitter bound to the aircraft with QGroundControl open" data-zoom>
+        <figcaption><b>Transmitter and ground station.</b> RadioMaster Pocket on EdgeTX with an ELRS
+        link, alongside QGroundControl. Getting a live RC channel readout here is what let me find
+        the failures below by watching bars move rather than guessing.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pangolin_receiver_rig.jpg" alt="Airspy R2 SDR with Raspberry Pi receiver stack" data-zoom>
+        <figcaption><b>Receiver stack.</b> Airspy R2 SDR into a Raspberry Pi 4B on battery power.
+        Built portable so it could be walked across a field with no monitor and no mains power.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cols">
+      <div class="panel">
+        <h4>What I did</h4>
+        <ul class="clean">
+          <li>Diagnosed a completely dead RC link as <strong>EdgeTX Model Match</strong> — the receiver was bound to one model slot, so every other slot was silently inert</li>
+          <li>Set up the flight modes and calibrated the voltage monitor, with a low-voltage failsafe that returns the aircraft to launch</li>
+          <li>Bench-tested all six motors for position and rotation direction, then ran the full arm-and-throttle chain with props off</li>
+          <li>Got the telemetry radio link running to the ground station wirelessly</li>
+          <li>Flew it</li>
+          <li>Currently still flight testing and working through stabilization issues</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Where it stands</h4>
+        <p>
+          The aircraft flies and the receiver works at range. I am still flight testing it and
+          working through stabilization issues, and the antenna mounts are being printed and fitted
+          before the airframe gets packed for shipping.
+        </p>
+        <p style="margin-top:12px">
+          The next milestone is flying the receiver payload rather than carrying it, so the whole
+          system gets tested together instead of in two halves.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:44px">Antenna mounting</h3>
+    <p>
+      The receive antenna is an H — two dipole elements on a boom — which has to sit on the aircraft
+      somewhere it can see the tag. A few constraints narrowed down where it could go: the carbon
+      landing legs cannot be drilled without weakening them, the elements have to stay clear of the
+      prop discs, and the assembly has to be roughly symmetric so it does not shift the center of
+      gravity or bias the aircraft in yaw. The antenna ends up tied in across all four landing legs,
+      which spreads the load and keeps it balanced, and that left the leg clamp as the part I
+      actually had to design.
+    </p>
+    <div class="callout">
+      <div class="k">What the mounts are for</div>
+      <p>
+        The aircraft has to be disassembled and shipped to Nigeria for field testing with pangolins,
+        then rebuilt once it arrives. That means the mounts are mostly there to keep the antenna in
+        the same position through every disassembly and reassembly. If the antenna ends up sitting
+        slightly differently each time, its pattern relative to the airframe changes, and any
+        direction finding built on top of it inherits that error.
+      </p>
+      <p style="margin-top:12px">
+        Because the job is locating rather than carrying load, I split the two functions. Zip ties
+        take the structural load and the antenna is also tied directly to the landing legs, so the
+        printed parts only have to define where everything sits. The one joint that does need to be
+        bolted is the clamp onto the landing leg, since that is the interface that should never
+        move.
+      </p>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="assets/pangolin_mount_v1_detail.jpg" alt="V1 printed clamp bolted to a carbon fiber landing leg" data-zoom>
+        <figcaption><b>V1, installed.</b> Printed split clamp closing on the carbon leg with a
+        machine screw, and a second perpendicular bore to carry the antenna element. No holes in the
+        carbon — the clamp works entirely in friction.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pangolin_mount_v1_bench.jpg" alt="V1 clamp on the aircraft on the bench" data-zoom>
+        <figcaption><b>V1 on the aircraft.</b> Tested on the legs to check the clamp before
+        committing to antenna geometry around it.</figcaption>
+      </figure>
+    </div>
+    <p>
+      I tested V1 on the legs and got no slipping at all, which told me the clamp design worked and
+      that friction alone holds position on carbon tube without putting fasteners through it. With
+      that settled I reworked the antenna side of the mount into an open semicircular saddle, so the
+      element drops in from above and gets tied down instead of being threaded through a closed bore
+      and screwed in place. It locates just as well, there is no hardware to lose in the field, and
+      it goes together much faster.
+    </p>
+    <div class="gallery">
+      <figure>
+        <img src="assets/pangolin_mount_v2_printed.jpg" alt="V2 printed mount showing the open saddle and zip-tie channel" data-zoom>
+        <figcaption><b>V2, printed.</b> Bolted split clamp for the landing leg on one side, open
+        saddle plus zip-tie channel for the antenna on the other. The element drops in from above
+        instead of sliding through.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pangolin_mount_v2_printed2.jpg" alt="V2 printed mount, second view" data-zoom>
+        <figcaption><b>V2, opposite side.</b> The two functions are deliberately separated — the
+        permanent joint is bolted, the field-serviceable one is tied.</figcaption>
+      </figure>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="assets/pangolin_antenna_v2.png" alt="V2 antenna mount CAD showing the H antenna spanning two landing legs" data-zoom>
+        <figcaption><b>V2, full assembly.</b> The H antenna tied in across all four landing legs,
+        boom split into sections joined by couplers so it comes apart for transport. Elements sit
+        outboard and below the prop plane.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pangolin_antenna_v2_detail.png" alt="V2 clamp joint detail" data-zoom>
+        <figcaption><b>V2 joint detail.</b> Two clamp bodies per leg, one carrying the boom and one
+        the element, so the antenna geometry is fixed by the printed parts rather than by how
+        carefully it was reassembled.</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin-top:44px">Receiver and range testing</h3>
+
+    <div class="gallery three">
+      <figure>
+        <img src="assets/pangolin_range_test.jpg" alt="Handheld receiver with LNA and antenna during an outdoor range test" data-zoom>
+        <figcaption><b>Range test in progress.</b> Raspberry Pi 4B, low-noise amplifier, and antenna
+        elements walked away from a stationary tag on foot. Battery powered and read remotely, so the
+        whole rig fits in one hand.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pangolin_gqrx_waterfall.jpg" alt="Gqrx spectrum and waterfall near 150 MHz" data-zoom>
+        <figcaption><b>Spectrum at the receiver.</b> Live waterfall around 150 MHz, watched over
+        remote desktop from a phone while walking.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pangolin_range_map.png" alt="Range test path measured on a map" data-zoom>
+        <figcaption><b>Distance measured.</b> Walk-away path recorded by map pin-drop —
+        <b>429 m</b> at the far end, still holding the tag.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cols">
+      <div class="panel">
+        <h4>Setting up the test</h4>
+        <p>
+          The rig had to be usable while walking across a field. I put the Pi on a battery HAT and
+          set up remote desktop access over a phone hotspot, so I could watch the live waterfall on
+          my phone with no monitor and no mains power. Distance came from map pin-drop.
+        </p>
+        <p style="margin-top:12px">
+          Reading the spectrum was its own step. Two steady carriers near 148.8 and 149.4 MHz look
+          exactly like a signal until you walk away from the tag and they do not change — they are
+          ambient RF, not the thing I was tracking.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>First result</h4>
+        <p>
+          The first range test detected the tag out to roughly <strong>10 m</strong>, against an
+          expectation of hundreds of meters for comparable wildlife tag setups. In free space every
+          factor of ten in distance costs about 20 dB, so that is a <strong>~40 dB</strong> hole to
+          account for.
+        </p>
+        <p style="margin-top:12px">
+          Uncontrolled antenna polarization was the obvious suspect, but even worst-case
+          cross-polarization realistically accounts for 20–30 dB, never a true null, because ground
+          bounce fills it in. So polarization could explain at most half to three quarters of the
+          gap. Something else was wrong.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="k">What fixed it</div>
+      <p>
+        I had been assuming the tag was at fault, but the problem turned out to be in the receive
+        chain. Adding a low-noise amplifier inline between the antenna and the SDR took detection
+        range from 10 m out to <strong>429 m</strong>, a factor of 43, or about
+        <strong>33 dB</strong> of recovered link budget.
+      </p>
+      <p style="margin-top:12px">
+        An improvement that large points at the system noise figure rather than at the transmitted
+        power. In a receive chain the first stage dominates, because its gain divides down the noise
+        contribution of everything after it. Without an amplifier at the front, feedline loss and
+        the SDR's own noise figure set the floor directly, and a weak 150 MHz tag sits below it.
+        Adding a low-noise, high-gain stage ahead of everything else brought the floor down far
+        enough to hear the tag at range.
+      </p>
+    </div>
+
+    <div class="cols">
+      <div class="panel">
+        <h4>A separate problem with the tag</h4>
+        <p>
+          The tag transmits a <strong>continuous carrier rather than the designed 1 Hz pulse
+          train</strong>. That is a real defect independent of the range problem: it destroys the
+          coin-cell battery life the tag was designed around, and it points at the pulse-timing
+          network being mispopulated or the transistor biased hard on.
+        </p>
+        <p style="margin-top:12px">
+          Diagnosing it properly means a vector network analyzer on the antenna feed <em>while
+          powered and transmitting</em> rather than on the antenna alone, plus a current draw
+          measurement against the design figure.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>What I'd do differently</h4>
+        <p>
+          Even with the good result, the test recorded a cutoff distance rather than a
+          signal-versus-distance curve, and receiver gain was not locked — signal strength in dBFS
+          means nothing across a walk if the gain moves underneath it.
+        </p>
+        <p style="margin-top:12px">
+          The next run locks gain, logs a reading at every stop, and treats polarization as a
+          controlled variable measured matched and crossed as best and worst case. A circularly
+          polarized helical tag antenna is on the build list: it costs a fixed ~3 dB but removes the
+          deep nulls a rolling, climbing animal would otherwise produce.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== ROBOBEE ==================== -->
+<section id="robobee">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-num">03 — Research</p>
+      <div class="badge">Full wings fabricated</div>
+      <h2>Insect-Scale Robot Wing Fabrication</h2>
+      <p class="proj-sub">RoboBee · Undergraduate Researcher, Harvard Microrobotics Lab</p>
+      <p class="sec-sub">
+        Developing a process to fabricate RoboBee's laser-cut composite wings on a $6,000 laser
+        cutter instead of the roughly $500,000-class equipment the published process assumes, while
+        holding the same micron-scale tolerances. Work done with Christian Salehi, Sam Oubala, and
+        Ian Zhang, supervised by a graduate student in the lab.
+      </p>
+    </div>
+
+    <p>
+      RoboBee is a 259 mg flapping-wing micro aerial vehicle with a 3.5 cm wingspan, roughly 100×
+      lighter than the next-smallest comparable vehicle. Its wings are built by the Smart Composite
+      Microstructure method: laser-cut layers of carbon fiber, adhesive, and polymer membrane,
+      laminated and released as a single part. Individual features are as small as
+      <strong>95 μm</strong> — comparable to the beam width of the laser cutting them.
+    </p>
+    <p>
+      The goal was to reproduce that process on the lab's cheaper laser. Most of the work has been
+      finding where the machine's limitations show up in the part and working out how to correct for
+      them. We kept a shared log of settings and results as we went —
+      <a href="https://docs.google.com/spreadsheets/d/1Su8qiOvCOaJeen86IWEw_9Zb73MHvABaSco70kdOzuQ/edit?gid=0#gid=0" target="_blank" rel="noopener">open the cut settings spreadsheet</a>.
+    </p>
+
+    <div class="gallery">
+      <figure>
+        <img src="assets/robobee_target_wing.jpg" alt="Reference RoboBee wings produced on the lab's high-end equipment" data-zoom>
+        <figcaption><b>Reference wings.</b> Reference wings from the lab's existing process — carbon fiber
+        spars on a transparent membrane, six to a sheet. Reproducing this on the cheap laser was the
+        objective.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/robobee_wing_final.jpg" alt="Finished wing produced on the low-cost laser, 20x microscope" data-zoom>
+        <figcaption><b>One of ours.</b> A finished wing off our process — full carbon fiber spar
+        structure, mounting teeth intact, membrane released. 3 mm scale bar, 20× magnification.</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin-top:44px">Finding cut settings</h3>
+    <p>
+      The first stretch of work was mostly systematic sweeps: vary speed, power, pass count and
+      Q-pulse for each material in the wing stack and record what happened. Every cut gets checked
+      under a microscope against two things, whether the part releases cleanly and whether the
+      material burned.
+    </p>
+    <div class="cols three">
+      <div class="panel">
+        <h4>Carbon fiber</h4>
+        <p>
+          Swept pass count against burn-through into the gelpak backing underneath. Too few passes
+          and the fibers stay intact; too many and the gelpak burns. <strong>100 passes</strong> came
+          out as the clean compromise.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>Mylar membrane</h4>
+        <p>
+          2.5 and 3.6 μm cut with little to no burn. 1.5 μm showed slight burning — thin films give
+          the beam nothing to absorb into, so the margin between cutting and scorching narrows.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>FR4</h4>
+        <p>
+          5 mil cut well. Applying the carbon fiber settings and sweeping pass count down from 50,
+          <strong>20 passes</strong> was optimal; 15 left fibers needing tweezer force, 10 did not
+          cut through.
+        </p>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="k">The 10 mil FR4 we could not cut</div>
+      <p>
+        We never got 10 mil FR4 to cut cleanly. Raising the speed as far as about 2000 mm/s made no
+        difference. The usual approach for thick material is refocusing, where you drop the laser by
+        half the material thickness partway through so the focal point follows the cut down into the
+        kerf. That did not work either, and the second half of the cut still came out poorly. I
+        tried half that offset in case the correction was too aggressive and got the same result.
+      </p>
+      <p style="margin-top:12px">
+        At that point I concluded the material was outside what this laser can do rather than a
+        setting we had not found yet, and we moved on. 5 mil FR4 cuts well, so that is what the
+        design uses.
+      </p>
+    </div>
+    <div class="gallery three">
+      <figure>
+        <img src="assets/robobee_testcuts.jpg" alt="Microscope image of parameter sweep test cuts in carbon fiber" data-zoom>
+        <figcaption><b>Parameter sweep.</b> Circles, slots, and registration crosshairs cut at
+        varying settings, 11× magnification, 1 mm scale.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/robobee_fr4_tests.jpg" alt="FR4 pass count sweep" data-zoom>
+        <figcaption><b>Pass count sweep.</b> Descending pass counts down a coupon until cuts stop
+        releasing on their own.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/robobee_cf_cut.jpg" alt="Carbon fiber cut coupon on acrylic" data-zoom>
+        <figcaption><b>Carbon fiber coupons.</b> Checked against the burn mark left in the backing
+        material, which is the real limit on pass count.</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin-top:44px">Correcting for beam width</h3>
+    <p>
+      Once parts started releasing cleanly they still measured wrong. Comparing cut parts against
+      the CAD under a scope camera showed everything coming out consistently undersize, which turned
+      out to be because the laser removes material equal to its own beam width. We measured the beam
+      at roughly <strong>85 μm</strong>. Since a wing spar is only 95 μm wide by design, that is
+      nearly as wide as the feature itself, so it is not a small correction.
+    </p>
+    <p>
+      The fix was to offset the cut profile outward and iterate, measuring on the scope after each
+      pass, until the mounting teeth landed at their 250 μm target and the spars at 95 μm. The
+      offset that converged was applied back into the sketch rather than handled by eye, so the
+      correction is now part of the geometry.
+    </p>
+    <figure class="doc">
+      <img src="assets/robobee_offset_measurement.png" alt="Microscope measurements of feature widths at successive profile offsets" data-zoom>
+      <figcaption><b>Offset iteration.</b> Measured feature widths at successive profile offsets
+      against the two targets — mounting tooth 250 μm, wing spar 95 μm. Top row shows the original
+      zero-offset cut coming in undersize.</figcaption>
+    </figure>
+
+    <h3 style="margin-top:44px">Fixturing</h3>
+    <p>
+      What sits underneath the material turned out to matter about as much as the settings. Cutting
+      carbon fiber and adhesive directly on a steel plate damaged the adhesive layer, and I think
+      two things were happening at once. Steel conducts roughly 50 times better than glass, so it
+      pulls heat sideways through the part, and it also reflects a large fraction of the beam back
+      up into the adhesive from below.
+    </p>
+    <p>
+      Both are handled by one layer: a sheet of 10 mil FR4 between the part and the steel plate,
+      which is a poor conductor and a poor reflector. The full stack from the bottom up is the steel
+      plate with its alignment support bars, the FR4, adhesive, then the carbon fiber and adhesive
+      laminate. With that fixture in place the same recipe works at a lower pass count, around 160
+      instead of 200, which gives some idea of how much energy had been going into the substrate.
+    </p>
+    <div class="cols">
+      <div class="panel">
+        <h4>Alignment through the flip</h4>
+        <p>
+          The wing has features on both faces, so the laminate has to be cut, flipped, and cut again
+          in the same coordinate frame. Rather than buy a precision jig, I put the alignment pin
+          holes into the cut file itself and laser-cut them into every layer of the fixture, so the
+          material registers on the same pins each time.
+        </p>
+        <p style="margin-top:12px">
+          The thing that makes it work is that the cut sketch has to be centered between the two
+          support bars, so that flipping the part and mirroring the sketch lands in the same place.
+          Any error in that center position shows up doubled in the mirrored cut.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>Adhesive orientation</h4>
+        <p>
+          I also tried running the stack with the <strong>adhesive layer facing up</strong>. It
+          failed in two ways: the membrane became difficult to press onto the stack, and the adhesive
+          melted under the beam instead of bonding, which made release much harder.
+        </p>
+        <p style="margin-top:12px">
+          Adhesive down is what works. Separately, removing the adhesive backing film <em>before</em>
+          cutting gives noticeably cleaner release than cutting through it. Bonding is done in a
+          hydraulic press at 5000 lb for 5 minutes at room temperature.
+        </p>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure>
+        <img src="assets/robobee_fixture.jpg" alt="Fixture stack-up on the steel plate under the microscope" data-zoom>
+        <figcaption><b>Fixture stack-up.</b> Steel plate with support bars, FR4 interposer, adhesive,
+        then the laminate — with the alignment pins that carry registration through the flip.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/robobee_adhesive_up_fail.jpg" alt="Wing with warped membrane from the adhesive-up attempt" data-zoom>
+        <figcaption><b>Adhesive-up attempt.</b> Membrane warping and poor release. Kept as the
+        reference for why the stack runs adhesive-down.</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin-top:44px">Cutting the full stack</h3>
+    <p>
+      The first attempt at a complete wing cut the membrane and carbon fiber in a single operation.
+      That burned and warped the membrane badly — unsurprising in retrospect, since a 3 μm film and a
+      170 μm fiber laminate have nothing in common thermally and there is no single recipe that suits
+      both.
+    </p>
+    <p>
+      I rebuilt it as a multi-layer cut file with separate settings for each layer, colour-coded so
+      any stage can be toggled on and off from the layer panel. The carbon fiber spars, membrane
+      outline, and the release cuts each run in sequence at their own speed, power, pass count and
+      Q-pulse, so each one can be tuned without disturbing the others.
+    </p>
+    <figure class="doc">
+      <img src="assets/robobee_lightburn.png" alt="LightBurn cut file showing six wings with colour-coded per-layer settings" data-zoom>
+      <figcaption><b>Multi-layer cut file.</b> Six wings nested with per-layer cut settings — the
+      selected layer runs 400 mm/s at 20 % power, 200 passes, 9 ns Q-pulse at 25 kHz. Registration
+      circles at the top carry alignment through the flip.</figcaption>
+    </figure>
+    <div class="gallery three">
+      <figure>
+        <img src="assets/robobee_first_wing.jpg" alt="First fully released wing" data-zoom>
+        <figcaption><b>First full release.</b> Rough around the edges, but the whole stack came out
+        in one piece, which was the first time the process worked end to end.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/robobee_released_parts.jpg" alt="Released wing parts alongside the parent carbon fiber sheet" data-zoom>
+        <figcaption><b>Released parts.</b> Spar sets and membranes lifted off the parent sheet.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/robobee_wing_final2.jpg" alt="Finished wing at 20x" data-zoom>
+        <figcaption><b>Finished wing.</b> Clean spars, intact mounting teeth, membrane fully
+        released.</figcaption>
+      </figure>
+    </div>
+
+    <div class="cols">
+      <div class="panel">
+        <h4>Switching laminates</h4>
+        <p>
+          Switching the carbon fiber from 0-90-0 to 0-45-0 layup changed the cutting behaviour
+          immediately — the laser went through far more easily. The 0-45-0 is roughly 90 μm against
+          170 μm, and its lamination is better, so both thickness and bond quality were working in
+          the same direction.
+        </p>
+        <p style="margin-top:12px">
+          Re-optimizing dropped the pass count from <strong>160 to 40</strong> and the Q-pulse from
+          9.00 to 5.00 ns. It is a reminder that these settings are tied to one specific laminate
+          rather than to carbon fiber in general.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>What's still unresolved</h4>
+        <p>
+          The rightmost section of membrane does not release as readily as the rest, and there is
+          some warping where the membrane meets the end of the spar. The intersection is likely
+          fixable by overlapping the carbon fiber cut profile slightly into the start of the membrane
+          cut; the membrane behaviour I do not yet have an explanation for.
+        </p>
+        <p style="margin-top:12px">
+          The other open question is how the control software sequences its cut paths on larger
+          shapes. Sometimes it traces the whole outline and repeats for the full pass count;
+          sometimes it completes all passes on one segment before moving on. Those deposit heat very
+          differently, and I suspect that is behind the uneven release.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BALANCING ROBOT ==================== -->
+<section id="balancer">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-num">04 — Design &amp; Controls</p>
+      <div class="badge">Exhibited at the SEAS Design Fair</div>
+      <h2>Two-Wheeled Self-Balancing Robot</h2>
+      <p class="proj-sub">Built for the Harvard SEAS Design Fair · with Keyi Chen and Evie Eyers</p>
+      <p class="sec-sub">
+        A two-wheeled robot that holds itself upright on a closed-loop controller — full
+        sensing-to-actuation chain from a 6-axis IMU through sensor fusion and PID to a motor driver
+        and geared DC motors, on a Seeeduino XIAO ESP32-S3. Designed, built, debugged, and exhibited
+        over the course of a semester.
+      </p>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <video src="assets/balance_demo.mp4" poster="assets/balance_demo_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>Balancing, hands off.</b> Released from an initial tilt and holding station
+        against small disturbances.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/balance_hero.jpg" alt="Side profile of the balancing robot on the bench" data-zoom>
+        <figcaption><b>Side profile.</b> Motors and battery low in the chassis, control electronics on
+        the protoboard deck, IMU mounted on the centerline.</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin-top:40px">Control system</h3>
+    <p>
+      An inverted pendulum has no stable equilibrium, so the robot only stays up because the
+      controller is correcting continuously. The loop runs at roughly 200 Hz: read the MPU6050,
+      estimate the lean angle, compute a PID correction, and drive both motors in the direction that
+      brings the wheels back under the center of mass.
+    </p>
+    <div class="cols">
+      <div class="panel">
+        <h4>Angle estimation</h4>
+        <p>
+          Neither sensor alone gives a usable angle. The accelerometer sees gravity but also every
+          bump and motor vibration; the gyro is smooth but drifts as its bias integrates. A
+          complementary filter blends them by weight:
+        </p>
+        <div class="eq">
+          $$\theta_k=0.95\left(\theta_{k-1}+\omega\,\Delta t\right)+0.05\,\theta_{\text{accel}}$$
+          <span class="note">\(\omega\) is the measured gyro rate and \(\theta_{\text{accel}}\)
+          the angle derived from the accelerometer.</span>
+        </div>
+        <p>
+          The gyro handles the short-term response and the small accelerometer term keeps pulling
+          the estimate back toward true vertical, so the drift never accumulates.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>Startup calibration</h4>
+        <p>
+          On boot the robot takes <strong>1000 gyro samples at rest</strong> to measure and subtract
+          its own bias, then <strong>500 samples held upright</strong> to capture its balance angle.
+        </p>
+        <p style="margin-top:12px">
+          The second step is there because the center of mass is not at the geometric center of the
+          chassis, so the angle the robot actually balances at is not 0°. Measuring it at startup
+          rather than assuming vertical means the controller holds the angle that is stable for this
+          particular build, and the integral term is not left working against a constant offset for
+          the whole run.
+        </p>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="panel">
+        <h4>PID implementation</h4>
+        <ul class="clean">
+          <li>Tuned gains <strong>K<sub>p</sub> = 30, K<sub>i</sub> = 1.0, K<sub>d</sub> = 1.5</strong></li>
+          <li><strong>Integral clamped to ±50</strong> so error cannot accumulate while the robot is held or stalled, then dump a saturated correction the instant it is released</li>
+          <li><strong>Derivative gated to |error| &gt; 0.3°</strong>, since differentiating a noisy angle signal amplifies the noise, and close to the balance point the derivative term ends up reacting mostly to sensor noise rather than to real motion</li>
+          <li>0.15° dead zone stops the motors buzzing at the balance point</li>
+          <li>Past 45° the robot is not going to recover, so the motors cut and the integral resets rather than coming back with a wound-up correction</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Electronics</h4>
+        <ul class="clean">
+          <li>Seeeduino XIAO ESP32-S3, I²C to the MPU6050 at 400 kHz</li>
+          <li>Pololu DRV8833 driving JGA25-371 gear motors at 1:34</li>
+          <li>1 kHz PWM at 8-bit resolution, output capped at 200 of 255</li>
+          <li>PWM applied <strong>directly to the direction pins</strong> — the DRV8833 has no separate PWM input, so speed and direction are encoded together in which of the two pins is driven</li>
+          <li>LiPo pack through an LM2596 buck converter for the logic rail</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gallery three">
+      <figure>
+        <img src="assets/balance_schematic.png" alt="Circuit schematic for the balancing robot" data-zoom>
+        <figcaption><b>Schematic.</b> Motor driver, microcontroller, IMU, and power stages.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/balance_blockdiagram.png" alt="Hand-drawn power and signal architecture" data-zoom>
+        <figcaption><b>Power architecture.</b> Working through the battery, buck converter, driver
+        and logic rail before committing to a build.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/balance_sketches.jpg" alt="Dimensioned hand sketches of motor mount and chassis components" data-zoom>
+        <figcaption><b>Layout sketches.</b> Dimensioned motor mount, battery, breadboard and
+        protoboard, used to size the chassis around real parts.</figcaption>
+      </figure>
+    </div>
+
+    <h3 style="margin-top:40px">The motor driver</h3>
+    <div class="cols">
+      <div class="panel">
+        <h4>The motor driver failure</h4>
+        <p>
+          We burned out a TB6612FNG driver during testing the night before the design fair. It was
+          a margin problem rather than a wiring mistake. The part is rated 1.2 A continuous and the
+          motors stall at roughly 1 A, which sounds like enough headroom until you consider how
+          often a balancing robot actually stalls its motors. Every direction reversal passes
+          through zero speed while the controller is still commanding torque.
+        </p>
+        <p style="margin-top:12px">
+          We all stayed at the SEC that night finding new parts, rebuilding and debugging, and got
+          it running for the fair the next day. We also went over to the robotics club and got car
+          fuses off them, and put one inline as a last precaution so that if the new controller ever
+          saw the same current again the fuse would go instead of the board.
+        </p>
+      </div>
+      <div class="panel">
+        <h4>Switching to the DRV8833</h4>
+        <p>
+          The Pololu DRV8833 was not a drop-in replacement. It has no dedicated PWM pins, so the
+          control scheme had to change: PWM now goes straight onto the direction inputs and speed
+          and direction are encoded together. It also has a lower input voltage ceiling at 10.8 V,
+          which is where the LM2596 buck stage came from.
+        </p>
+        <p style="margin-top:12px">
+          While rebuilding I also noticed that two pins which read as motor controller inputs on the
+          silkscreen were actually ground. I caught that on the datasheet before wiring anything to
+          them.
+        </p>
+      </div>
+    </div>
+    <div class="gallery three">
+      <figure>
+        <img src="assets/balance_smoked.jpg" alt="The burned-out TB6612FNG motor driver" data-zoom>
+        <figcaption><b>The burned-out driver.</b> The TB6612FNG after it let go.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/balance_tb6612.jpg" alt="TB6612FNG breakout board" data-zoom>
+        <figcaption><b>Original driver.</b> TB6612FNG breakout — 1.2 A continuous, no margin over
+        stall.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/balance_drv8833.jpg" alt="Pololu DRV8833 motor driver board" data-zoom>
+        <figcaption><b>Replacement.</b> Pololu DRV8833, with the pinout that forced the control
+        rewrite.</figcaption>
+      </figure>
+    </div>
+
+    <div class="callout">
+      <div class="k">Testing with a raised center of mass</div>
+      <p>
+        When we tested with a deliberately raised center of mass the robot stopped recovering, and
+        no amount of PID tuning changed that. Tuning only changes how the controller uses the
+        authority it already has, so if no set of gains works it is usually a sign the problem is
+        somewhere else. A higher center of mass means a longer lever arm and more restoring torque
+        required, and the 1:34 motors could not deliver it quickly enough.
+      </p>
+      <p style="margin-top:12px">
+        The limitation was in the gearing rather than in the controller, so the fix is a hardware
+        one: a lower gear ratio from the same motor family, trading top speed for torque. We ran out
+        of semester before swapping them, but that is the change I would make first.
+      </p>
+    </div>
+
+    <div class="gallery three">
+      <figure>
+        <video src="assets/balance_upright.mp4" poster="assets/balance_upright_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>Holding station.</b> Correcting continuously around the balance point.</figcaption>
+      </figure>
+      <figure>
+        <video src="assets/balance_hub_cad.mp4" poster="assets/balance_hub_cad_poster.jpg" controls muted loop playsinline preload="metadata"></video>
+        <figcaption><b>Chassis design.</b> Two-part shell that slots together around the drivetrain
+        and electronics deck.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/balance_wiring.jpg" alt="Wiring inside the chassis" data-zoom>
+        <figcaption><b>Inside the chassis.</b> Driver, buck converter and IMU on the protoboard deck,
+        motor leads routed below.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about" style="border-bottom:none">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-num">05 — About</p>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>
+          I am a sophomore at Harvard College, Class of 2029, concentrating in Mechanical Engineering
+          at SEAS. I am the R&amp;D lead at Harvard Undergraduate Aerospace Collective – Rocketry
+          and an undergraduate researcher at the Harvard Microrobotics Lab.
+        </p>
+        <h3 style="margin-top:30px">Coursework</h3>
+        <p style="margin-bottom:8px"><strong>Completed:</strong> ES 51 (Computer Aided Machine
+        Design), ES 50 (Circuits &amp; Digital Systems), Physics 15a (Mechanics and Special
+        Relativity), Math 21a (Multivariable Calculus), Math 21b (Linear Algebra), CS50 (Introduction
+        to Computer Science)</p>
+        <p style="margin-bottom:8px"><strong>Fall 2026:</strong> ES 181 (Engineering
+        Thermodynamics), ES 125 (Mechanical Systems)</p>
+        <p><strong>Spring 2027:</strong> ES 123 (Fluid Mechanics), ES 120 (Solid Mechanics)</p>
+        <h3 style="margin-top:30px">Tools</h3>
+        <p>
+          NASA CEA and RocketCEA · RPA · Onshape, including Simulation for FEA · Python · manual
+          lathe and mill · ArduPilot and QGroundControl · SDR and RF test
+        </p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="contact">
+          <a href="mailto:nicholasbondar@college.harvard.edu"><span>Email</span> nicholasbondar@college.harvard.edu</a>
+          <a href="https://www.linkedin.com/in/nicholas-bondar" target="_blank" rel="noopener"><span>LinkedIn</span> nicholas-bondar</a>
+          <a href="#" data-edit><span>Résumé</span> add PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>Nicholas Bondar — Harvard SEAS ’29</div>
+    <div>FUD-1 · Forward Unto Dawn</div>
+  </div>
+</footer>
+
+<div id="lb"><img alt=""></div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+  document.querySelectorAll('[data-zoom]').forEach(function(img){
+    img.addEventListener('click',function(){
+      lbi.src=img.currentSrc||img.src; lbi.alt=img.alt; lb.classList.add('on');
+    });
+  });
+  lb.addEventListener('click',function(){lb.classList.remove('on');});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on');});
+})();
+</script>
+
+</body>
+</html>
