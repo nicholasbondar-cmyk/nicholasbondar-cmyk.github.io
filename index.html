@@ -493,7 +493,15 @@ footer{padding:36px 0 52px}
               <span class="note">Here \(d\) is the jet hole diameter and \(w\) the annular film
               width. Velocities come from Bernoulli, \(v=\sqrt{2\Delta P/\rho}\).</span>
             </div>
-            <p>Target LMR 1.5–3, spray angle 50–70°. Standoff at L<sub>p</sub>/D<sub>p</sub> = 1.0–1.5.</p>
+            <p>
+              Target LMR is 1.5–3, giving a spray angle of 50–70°, with standoff set by
+              L<sub>p</sub>/D<sub>p</sub> = 1.0–1.5. I did not converge this to a final number.
+              The results I was getting were not consistent enough to design to, and a pintle is
+              inherently stable with L* = 500 mm of residence length behind it, so I treated the
+              spray angle as a sanity check rather than something to optimize on a first engine.
+              It is on the list to revisit with cold flow data, where I can measure the spray angle
+              directly instead of predicting it.
+            </p>
           </div>
         </div>
         <figure class="doc">
@@ -738,8 +746,8 @@ footer{padding:36px 0 52px}
         <p class="step-tool">Two outside reviewers, August 2026</p>
         <p>
           Before committing to an irreversible print I took the design through review with two
-          outside engineers: a former fluids lead at Firefly Aerospace, and an engineer who works
-          with Relativity Space. I scheduled the review specifically because the print had not been
+          outside engineers: a former fluids lead at Firefly Aerospace, and a propulsion engineer
+          who does contract work for Relativity Space. I scheduled the review specifically because the print had not been
           ordered yet, and I split the agenda into what was already frozen and what was still open
           so their time went to the parts I could still change.
         </p>
