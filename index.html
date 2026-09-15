@@ -3,164 +3,246 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nicholas Bondar — Mechanical Engineering</title>
+<title>Nicholas Bondar · Mechanical Engineering</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"
         onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
-<meta name="description" content="Nicholas Bondar — Harvard Mechanical Engineering. Chief Engineer of the Harvard Undergraduate Aerospace Collective – Rocketry, working on a 250 lbf regeneratively cooled liquid bipropellant rocket engine.">
+<meta name="description" content="Nicholas Bondar, Harvard Mechanical Engineering. Chief Engineer of the Harvard Undergraduate Aerospace Collective – Rocketry, working on a 250 lbf regeneratively cooled liquid bipropellant rocket engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fcfbf8'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' text-anchor='middle' fill='%23004f90'%3ENB%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nicholas Bondar · Mechanical Engineering">
+<meta property="og:description" content="A 250 lbf regeneratively cooled liquid bipropellant rocket engine, designed from chemical equilibrium through release to print.">
+<meta property="og:image" content="https://nicholasbondar-cmyk.github.io/assets/engine_assembly.png">
+<meta property="og:url" content="https://nicholasbondar-cmyk.github.io/">
+<meta name="twitter:card" content="summary_large_image">
 <style>
+/* ============================================================
+   Three primitives, repeated:
+     1. PROSE   headings + paragraphs + lists. No boxes, ever.
+     2. FIGURE  image, hairline, caption.
+     3. TABLE   hairline rows, label left, value right.
+   Everything else collapses into one of those three.
+   Hairlines are the only decoration. Colour is only for links.
+   ============================================================ */
 :root{
-  --bg:#08090b; --bg-2:#0e1114; --panel:#12161a;
-  --line:#232a31; --line-2:#2e3740;
-  --txt:#e6eaee; --txt-2:#9aa5b1; --txt-3:#6b7783;
-  /* Accent colour. Change this one value to re-theme the whole site. */
-  --acc:#79a6d2; --ok:#5fbf8f; --warn:#d6a65c;
-  --mono:'IBM Plex Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
-  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --paper:#fcfbf8;
+  --ink:#14171a;      /* 17.4:1  headings, data values          */
+  --ink-2:#3c4349;    /*  9.7:1  body prose                     */
+  --ink-3:#5a6167;    /*  6.1:1  captions and labels, passes AA */
+  --rule:#e0dcd3;
+  --rule-2:#c9c4b9;
+  --acc:#004f90;      /*  8.1:1  links only                     */
+  --measure:710px;    /* the text column. one value, in px, so every
+                         text block shares an edge. ch units do not. */
+  --serif:'Source Serif 4',Charter,'Bitstream Charter','Iowan Old Style',Cambria,Georgia,serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink-2);
+  font-family:var(--serif);font-size:18.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 img,video{max-width:100%;display:block}
-a{color:var(--acc);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:var(--acc);text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:2.5px}
+a:hover{text-decoration-thickness:1.5px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 34px}
 
-/* nav */
-nav{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:24px}
-.brand{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
-.brand span{color:var(--acc)}
-.navlinks{display:flex;gap:24px;flex-wrap:wrap}
-.navlinks a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-2);transition:color .15s}
+/* masthead */
+nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule-2)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:22px}
+.brand{font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:0;
+  text-transform:none;color:var(--ink)}
+.brand span{color:var(--ink);font-weight:600}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap}
+.navlinks a{font-family:var(--serif);font-size:15.5px;color:var(--ink-3);
+  text-transform:none;letter-spacing:0;text-decoration:none}
 .navlinks a:hover{color:var(--acc);text-decoration:none}
-@media(max-width:860px){.navlinks{display:none}}
+@media(max-width:880px){.navlinks{display:none}}
 
-/* hero */
-header.hero{border-bottom:1px solid var(--line);
-  background:radial-gradient(900px 420px at 78% 34%,rgba(121,166,210,.09),transparent 62%),linear-gradient(180deg,var(--bg),var(--bg-2));
-  padding:72px 0 0}
-.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}}
-.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin:0 0 16px}
-h1{font-size:30px;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;font-weight:600}
-.hero-role{font-size:15px;color:var(--txt-3);margin:0 0 22px}
-.hero-sub{font-size:17px;color:var(--txt-2);margin:0 0 16px;max-width:56ch}
-.hero-sub strong{color:var(--txt);font-weight:600}
-.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 32px}
-.tag{font-family:var(--mono);font-size:11.5px;color:var(--txt-2);border:1px solid var(--line-2);border-radius:3px;padding:5px 10px;background:var(--panel)}
-.hero-img{padding-bottom:34px}
-.hero-img img{filter:drop-shadow(0 30px 60px rgba(0,0,0,.6));mix-blend-mode:screen}
-.hero-cap{font-family:var(--mono);font-size:11px;color:var(--txt-3);letter-spacing:.06em;text-align:center;margin-top:6px}
+/* ---------- 1. PROSE ---------- */
+header.hero{border-bottom:1px solid var(--rule-2);padding:60px 0 0;background:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:26px}}
+h1{font-size:42px;line-height:1.12;margin:0 0 4px;letter-spacing:-.01em;font-weight:600;color:var(--ink)}
+.eyebrow,.hero-role{font-family:var(--serif);font-size:17px;color:var(--ink-3);
+  letter-spacing:0;text-transform:none;margin:0 0 22px}
+.hero-sub{font-size:18.5px;color:var(--ink-2);margin:0 0 15px;max-width:var(--measure)}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-meta{display:block;margin:24px 0 34px;padding-top:13px;border-top:1px solid var(--rule);
+  font-size:16px;color:var(--ink-3);line-height:1.75;max-width:var(--measure)}
+.tag{display:inline;border:0;background:none;padding:0;border-radius:0;
+  font-family:var(--serif);font-size:16px;color:var(--ink-3)}
+.tag::after{content:', '}
+.tag:last-child::after{content:'.'}
+.hero-img{padding-bottom:38px}
+.hero-img img{mix-blend-mode:normal;filter:none}
 
-/* sections */
-section{padding:84px 0;border-bottom:1px solid var(--line)}
-.sec-head{margin-bottom:36px}
-.sec-num{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--acc);text-transform:uppercase;margin:0 0 12px}
-h2{font-size:clamp(27px,3.4vw,37px);letter-spacing:-.02em;margin:0 0 12px;font-weight:650;line-height:1.14}
-.proj-sub{color:var(--txt-3);font-size:14.5px;margin:0 0 14px}
-.sec-sub{color:var(--txt-2);font-size:17px;margin:0;max-width:74ch}
-h3{font-size:13px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--txt);margin:0 0 14px;font-weight:600;padding-bottom:10px;border-bottom:1px solid var(--line)}
-h4{font-size:16px;margin:0 0 8px;font-weight:600;letter-spacing:-.01em}
-p{margin:0 0 15px;color:var(--txt-2)}
-p strong,li strong{color:var(--txt);font-weight:600}
+section{padding:72px 0;border-bottom:1px solid var(--rule-2)}
+.sec-head{margin-bottom:30px}
+.sec-num{font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  letter-spacing:0;text-transform:none;margin:0 0 8px}
+h2{font-size:32px;letter-spacing:-.012em;margin:0 0 8px;font-weight:600;line-height:1.18;color:var(--ink)}
+.proj-sub{color:var(--ink-3);font-size:16.5px;margin:0 0 14px}
+.sec-sub{color:var(--ink-2);font-size:18.5px;margin:0;max-width:var(--measure)}
+h3{font-size:18.5px;font-family:var(--serif);letter-spacing:0;text-transform:none;
+  color:var(--ink);margin:0 0 10px;font-weight:600;padding-bottom:0;border-bottom:0}
+h4{font-size:17.5px;margin:0 0 7px;font-weight:600;letter-spacing:0;color:var(--ink)}
+p{margin:0 0 14px;color:var(--ink-2);max-width:var(--measure)}
+p strong,li strong{color:var(--ink);font-weight:600}
 p:last-child{margin-bottom:0}
+.role{font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  letter-spacing:0;text-transform:none;margin:0 0 8px}
 
-.badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ok);border:1px solid rgba(95,191,143,.30);background:rgba(95,191,143,.08);border-radius:3px;padding:5px 11px;margin-bottom:18px}
-.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ok)}
-.badge.amber{color:var(--warn);border-color:rgba(214,166,92,.32);background:rgba(214,166,92,.08)}
-.badge.amber::before{background:var(--warn)}
+/* status note -> just a line of prose */
+.badge,.badge.amber{display:block;font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  border:0;background:none;border-radius:0;padding:0;margin:0 0 12px;
+  letter-spacing:0;text-transform:none;font-style:italic}
+.badge::before,.badge.amber::before{content:none;width:auto;height:auto;border-radius:0;background:none}
 
-/* process steps */
-.step{display:grid;grid-template-columns:64px 1fr;gap:26px;padding:38px 0;border-top:1px solid var(--line)}
-.step:first-of-type{border-top:1px solid var(--line-2)}
-@media(max-width:760px){.step{grid-template-columns:1fr;gap:14px}}
-.step-n{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--acc);padding-top:4px}
-.step-title{font-size:20px;font-weight:600;letter-spacing:-.015em;margin:0 0 6px;color:var(--txt)}
-.step-tool{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin:0 0 16px}
+/* design-process sections -> prose with a small number, no gutter numeral */
+.step{display:block;padding:34px 0 0;border-top:1px solid var(--rule)}
+/* Asides are grouped with the prose they belong to instead of being placed by
+   row band across the whole step. A band could not know where a full-width
+   table or .cols interrupted the column, so it overlapped them and stretched
+   rows. Two primitives only: .tt is prose with a figure alongside it, .pair is
+   two equal blocks. Everything else is block flow at the text measure. */
+.tt{display:grid;grid-template-columns:minmax(0,1.34fr) minmax(0,1fr);
+  column-gap:58px;align-items:start;margin:0}
+.tt>*{grid-column:1;min-width:0}
+.tt>figure{grid-column:2;grid-row:1/span 50;margin:5px 0 0}
+.tt>figure:nth-of-type(2){grid-row:51/span 50;margin-top:26px}
+.tt>figure>img,.tt>figure>video{width:100%;max-height:none}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:50px;align-items:start;margin:30px 0}
+.pair>*{min-width:0;margin:0}
+.pair>figure>img,.pair>figure>video{width:100%;max-height:none}
+.panel>figure{margin:20px 0 0}
+.panel>.callout,.panel>.callout.warn{margin:22px 0 0}
+.panel>figure>img{width:100%;max-height:none}
+/* .lead: the step number and the intro prose sit in one left-column box, so the
+   figure beside them tops out on the same line as the number. Spanning two rows
+   instead let the figure's height inflate the number's row and push the prose
+   down to the middle of the photo. Everything after spans both tracks, because
+   .cols and .gallery need the full canvas. */
+.step.lead{display:grid;grid-template-columns:minmax(0,1.34fr) minmax(0,1fr);
+  column-gap:58px;align-items:start}
+.step.lead>.lead-col{grid-column:1;grid-row:1;min-width:0}
+.step.lead>figure{grid-column:2;grid-row:1;margin:0;align-self:start}
+.step.lead>figure>img{width:100%;max-width:100%;max-height:none}
+.step.lead>.lead-rest{grid-column:1/-1;grid-row:2;min-width:0}
+@media(max-width:900px){
+  .step.lead{display:block}
+  .step.lead>figure{margin:26px 0}}
+/* a figure standing on its own: fill the canvas but never balloon vertically */
+.step>div>figure{margin:30px 0}
+.step>div>figure>img,.step>div>figure>video{width:auto;max-width:100%;max-height:640px}
+@media(max-width:900px){
+  .tt,.pair{display:block}
+  .tt>figure,.pair>figure{margin:26px 0}}
+.step:first-of-type{border-top:1px solid var(--rule-2)}
+.step-n{font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  letter-spacing:0;padding:0;margin:0 0 2px}
+.step-title{font-size:23px;font-weight:600;letter-spacing:-.012em;margin:0 0 4px;color:var(--ink)}
+.step-tool{font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  letter-spacing:0;text-transform:none;margin:0 0 14px}
 
-/* specs */
-.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0}
-.spec{background:var(--bg-2);padding:18px 20px}
-.spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-3);margin-bottom:7px}
-.spec dd{margin:0;font-family:var(--mono);font-size:19px;color:var(--txt);line-height:1.25}
-.spec dd small{display:block;font-size:11px;color:var(--txt-3);margin-top:4px;font-family:var(--mono)}
-
-/* panels */
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}
-.cols.three{grid-template-columns:1fr 1fr 1fr}
-@media(max-width:840px){.cols,.cols.three{grid-template-columns:1fr}}
-.panel{background:var(--panel);border:1px solid var(--line);padding:24px}
-.panel ul{margin:0;padding-left:18px;color:var(--txt-2)}
-.panel li{margin-bottom:9px}
+/* panels -> prose. no card, no background, no border. */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin:32px 0}
+.cols.three{grid-template-columns:1fr 1fr 1fr;gap:52px}
+@media(max-width:840px){.cols,.cols.three{grid-template-columns:1fr;gap:24px}}
+.panel{background:none;border:0;padding:0}
+.panel ul{margin:0;padding-left:19px;color:var(--ink-2);max-width:var(--measure)}
+.panel li{margin-bottom:7px}
 .panel li:last-child{margin-bottom:0}
 ul.clean{list-style:none;padding-left:0}
-ul.clean li{padding-left:16px;position:relative}
-ul.clean li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:1px;background:var(--acc)}
+ul.clean li{padding-left:15px;position:relative}
+ul.clean li::before{content:'\2013';position:absolute;left:0;top:0;width:auto;height:auto;
+  background:none;color:var(--rule-2)}
 
-/* figures + gallery */
-figure{margin:28px 0;background:var(--bg-2);border:1px solid var(--line);padding:18px}
-figure img,figure video{margin:0 auto}
+/* notes -> hairline indent, the same hairline vocabulary as figures and tables.
+   deliberately NOT a coloured 3px stripe. */
+.callout,.callout.warn{border:0;border-left:1px solid var(--rule-2);background:none;
+  padding:1px 0 1px 22px;margin:26px 0}
+.callout .k,.callout.warn .k{font-family:var(--serif);font-size:18.5px;font-weight:600;
+  color:var(--ink);letter-spacing:0;text-transform:none;margin-bottom:4px}
+
+/* ---------- 2. FIGURE ---------- */
+figure{margin:32px 0;background:none;border:0;padding:0}
+figure img,figure video{margin:0;width:100%;height:auto}
 figure img[data-zoom]{cursor:zoom-in}
-figcaption{font-family:var(--mono);font-size:11.5px;color:var(--txt-3);letter-spacing:.03em;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);line-height:1.6}
-figcaption b{color:var(--txt-2);font-weight:600}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
+figcaption,.hero-cap{font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  letter-spacing:0;margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);
+  line-height:1.55;max-width:var(--measure);text-align:left}
+.hero-cap{margin-top:11px}
+figcaption b{color:var(--ink);font-weight:600}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin:34px 0}
 .gallery.three{grid-template-columns:1fr 1fr 1fr}
 @media(max-width:840px){.gallery,.gallery.three{grid-template-columns:1fr}}
 .gallery figure{margin:0;height:100%}
-.gallery img{width:100%;object-fit:contain;background:#fff}
-.gallery img.dark{background:transparent}
-figure.doc img{background:#fff}
+.gallery img,.gallery img.dark{width:100%;max-height:none;object-fit:contain;background:none}
+figure.doc img{background:none;border:1px solid var(--rule)}
 
-/* equations */
-.eq{background:var(--bg);border:1px solid var(--line);padding:20px 18px 16px;margin:18px 0;overflow-x:auto;text-align:center}
-.eq .katex{font-size:1.18em;color:var(--txt)}
+/* equations are figures: air around them, no frame */
+.eq{background:none;border:0;padding:6px 0;margin:26px 0;overflow-x:auto;
+  text-align:center;max-width:var(--measure)}
+.eq .katex{font-size:1.14em;color:var(--ink)}
 .eq .katex-display{margin:0}
-.eq .note{display:block;color:var(--txt-3);font-size:12.5px;margin-top:12px;font-family:var(--sans);line-height:1.55}
+.eq .note{display:block;color:var(--ink-3);font-size:16px;margin-top:12px;
+  font-family:var(--serif);line-height:1.55;text-align:left;max-width:none}
 
-/* callout */
-.callout{border:1px solid var(--line-2);border-left:3px solid var(--acc);background:var(--panel);padding:24px 26px;margin:28px 0}
-.callout.warn{border-left-color:var(--warn)}
-.callout .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:11px}
-.callout.warn .k{color:var(--warn)}
+/* ---------- 3. TABLE ---------- */
+table{width:100%;border-collapse:collapse;margin:26px 0;font-size:17px}
+th,td{text-align:left;padding:9px 20px 9px 0;border-bottom:1px solid var(--rule);vertical-align:baseline}
+th{font-family:var(--serif);font-size:16px;letter-spacing:0;text-transform:none;
+  color:var(--ink-3);font-weight:400;border-bottom:1px solid var(--rule-2)}
+td{color:var(--ink-2)}
+td:first-child{color:var(--ink)}
+td.num{font-family:var(--serif);font-size:17px;font-variant-numeric:lining-nums tabular-nums}
+tbody tr:last-child td{border-bottom:1px solid var(--rule-2)}
+tr.final td{color:var(--ink);font-weight:600}
 
-/* tables */
-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px}
-th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-3);font-weight:600;border-bottom:1px solid var(--line-2)}
-td{color:var(--txt-2)}
-td:first-child{color:var(--txt)}
-td.num{font-family:var(--mono);font-size:13.5px}
-tbody tr:last-child td{border-bottom:none}
-tr.final td{color:var(--txt)}
+/* spec sheet is a table, styled identically */
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(182px,1fr));gap:0;
+  background:none;border:0;border-top:1px solid var(--rule-2);margin:28px 0 32px}
+.spec{background:none;padding:12px 24px 12px 0;border-bottom:1px solid var(--rule)}
+.spec dt{font-family:var(--serif);font-size:16px;letter-spacing:0;text-transform:none;
+  color:var(--ink-3);margin-bottom:1px}
+.spec dd{margin:0;font-family:var(--serif);font-size:19px;color:var(--ink);line-height:1.3;
+  font-variant-numeric:lining-nums tabular-nums}
+.spec dd small{display:block;font-family:var(--serif);font-size:15.5px;color:var(--ink-3);margin-top:0}
 
-/* document links */
-.docs{margin:22px 0;border-top:1px solid var(--line)}
-.docs a{display:flex;align-items:center;gap:14px;padding:13px 2px;border-bottom:1px solid var(--line);
-  color:var(--txt);font-size:15px;text-decoration:none}
-.docs a:hover{color:var(--acc)}
-.docs a span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--txt-3);border:1px solid var(--line-2);border-radius:3px;padding:3px 7px;min-width:54px;text-align:center}
+/* link lists are tables */
+.docs{margin:26px 0;border-top:1px solid var(--rule-2)}
+.docs a{display:flex;align-items:baseline;gap:16px;padding:11px 2px;
+  border-bottom:1px solid var(--rule);color:var(--acc);font-size:17.5px;
+  text-decoration:none}
+.docs a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px}
+.docs a span{font-family:var(--serif);font-size:16px;letter-spacing:0;text-transform:none;
+  color:var(--ink-3);border:0;border-radius:0;padding:0;min-width:52px;text-align:left}
+.contact a{display:flex;justify-content:space-between;gap:16px;font-family:var(--serif);
+  font-size:17.5px;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--acc);
+  text-decoration:none}
+.contact a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2.5px}
+.contact a span{color:var(--ink-3);font-size:16px;letter-spacing:0;text-transform:none}
+.about-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:76px}
+@media(max-width:840px){.about-grid{grid-template-columns:1fr;gap:32px}}
 
-/* placeholder */
-.ph{border:1px dashed var(--line-2);background:repeating-linear-gradient(45deg,transparent,transparent 9px,rgba(255,255,255,.014) 9px,rgba(255,255,255,.014) 18px);
-  min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px;margin:24px 0;gap:6px}
-.ph .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-3)}
-.ph .hint{font-size:13px;color:var(--txt-3);max-width:54ch;line-height:1.6}
+/* unused, kept harmless */
+.ph{border:1px solid var(--rule);background:none;min-height:120px;display:flex;
+  flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:24px;margin:24px 0;gap:5px}
+.ph .lbl,.ph .hint{font-family:var(--serif);font-size:16px;color:var(--ink-3);
+  letter-spacing:0;text-transform:none;max-width:54ch;line-height:1.55}
 
-.role{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:0 0 10px}
-.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px}
-@media(max-width:840px){.about-grid{grid-template-columns:1fr}}
-.contact a{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:13.5px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--txt)}
-.contact a:hover{color:var(--acc);text-decoration:none}
-.contact a span{color:var(--txt-3);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+footer{padding:30px 0 52px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--serif);font-size:16px;color:var(--ink-3)}
 
-footer{padding:36px 0 52px}
-.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--txt-3)}
-
-#lb{position:fixed;inset:0;z-index:200;background:rgba(4,5,6,.97);display:none;align-items:center;justify-content:center;padding:32px;cursor:zoom-out}
+#lb{position:fixed;inset:0;z-index:200;background:rgba(252,251,248,.98);display:none;
+  align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
 #lb.on{display:flex}
 #lb img{max-width:97vw;max-height:94vh;object-fit:contain}
 </style>
@@ -210,7 +292,7 @@ footer{padding:36px 0 52px}
       </div>
       <div class="hero-img">
         <img src="assets/engine_assembly.png" alt="FUD-1 engine assembly, isometric CAD view" data-zoom>
-        <p class="hero-cap">FUD-1 — engine assembly, injector manifold through nozzle exit</p>
+        <p class="hero-cap">FUD-1 engine assembly, injector manifold through nozzle exit</p>
       </div>
     </div>
   </div>
@@ -221,7 +303,7 @@ footer{padding:36px 0 52px}
   <div class="wrap">
 
     <div class="sec-head">
-      <p class="sec-num">01 — Primary Project</p>
+      <p class="sec-num">01 · Primary Project</p>
       <div class="badge">Design review passed · Going to print</div>
       <h2>250 lbf Liquid Bipropellant Rocket Engine</h2>
       <p class="proj-sub">FUD-1 &ldquo;Forward Unto Dawn&rdquo; · Harvard Undergraduate Aerospace Collective – Rocketry</p>
@@ -279,7 +361,8 @@ footer{padding:36px 0 52px}
     <div class="step">
       <div class="step-n">01</div>
       <div>
-        <h4 class="step-title">Combustion analysis and propellant selection</h4>
+        <div class="tt">
+          <h4 class="step-title">Combustion analysis and propellant selection</h4>
         <p class="step-tool">NASA CEA · RocketCEA · Google Sheets</p>
         <p>
           I started in NASA CEA to get equilibrium combustion properties across a range of O/F
@@ -289,7 +372,7 @@ footer{padding:36px 0 52px}
           <strong>Fuel blend.</strong> Adding 10&nbsp;% water by mass lowered combustion temperature
           from 2 945 K to 2 868 K and lowered exhaust molecular weight from about 25 to 23.1.
           Because I<sub>sp</sub> scales with √(T/M), the drop in molecular weight offsets the drop
-          in temperature — ideal I<sub>sp</sub> came out slightly higher while the thermal
+          in temperature. Ideal I<sub>sp</sub> came out slightly higher while the thermal
           environment got easier. Water also has roughly twice the specific heat of ethanol, so it
           carries more heat on the coolant side as well.
         </p>
@@ -304,9 +387,10 @@ footer{padding:36px 0 52px}
           <img src="assets/cea_spreadsheet.png" alt="Sizing spreadsheet alongside NASA CEA output and design notes" data-zoom>
           <figcaption><b>Sizing spreadsheet and CEA output.</b> Locked parameters on the left,
           raw CEA equilibrium output in the center, reasoning notes on the right. CEA is running
-          in infinite-area-combustor mode here — the discrepancy that creates is resolved in
+          in infinite-area-combustor mode here, and the discrepancy that creates is resolved in
           step 3.</figcaption>
         </figure>
+        </div>
       </div>
     </div>
 
@@ -314,14 +398,15 @@ footer{padding:36px 0 52px}
     <div class="step">
       <div class="step-n">02</div>
       <div>
-        <h4 class="step-title">Geometry sizing spreadsheet</h4>
+        <div class="tt">
+          <h4 class="step-title">Geometry sizing spreadsheet</h4>
         <p class="step-tool">Google Sheets, derived from CEA outputs</p>
         <p>
           With combustion properties fixed, I sized the chamber and nozzle from first principles
           rather than reading dimensions out of a solver. Throat area from required mass flow and
           C*, exit area from the expansion ratio at sea level, chamber volume from a selected
           characteristic length, mass flow split by O/F. Keeping it in a spreadsheet meant changing
-          one input — O/F, film cooling fraction, thrust — updated every downstream dimension.
+          one input (O/F, film cooling fraction, thrust) updated every downstream dimension.
         </p>
         <div class="eq">
           $$\dot{m}=\frac{F}{I_{sp}\,g_0} \qquad A_t=\frac{\dot{m}\,C^{*}}{P_c} \qquad V_c=L^{*}A_t$$
@@ -340,6 +425,7 @@ footer{padding:36px 0 52px}
           orifices came out too small to drill reliably; the O/F 4.1 case was dropped on thermal
           grounds. Both are marked as not current.</figcaption>
         </figure>
+        </div>
       </div>
     </div>
 
@@ -347,7 +433,8 @@ footer{padding:36px 0 52px}
     <div class="step">
       <div class="step-n">03</div>
       <div>
-        <h4 class="step-title">Verification in RPA</h4>
+        <div class="tt">
+          <h4 class="step-title">Verification in RPA</h4>
         <p class="step-tool">Rocket Propulsion Analysis, finite area combustor mode</p>
         <p>
           I rebuilt the engine in RPA to check the spreadsheet. My hand calculations landed within
@@ -357,7 +444,7 @@ footer{padding:36px 0 52px}
         <div class="callout">
           <div class="k">Why the two disagreed</div>
           <p>
-            CEA assumes an <strong>infinite area combustor</strong> — the gas is stationary at the
+            CEA assumes an <strong>infinite area combustor</strong>, so the gas is stationary at the
             injector face. I had RPA set as a <strong>finite area combustor</strong> at
             A<sub>c</sub>/A<sub>t</sub> = 4.0, which accounts for the gas already moving as it
             reaches the nozzle inlet. That momentum has to come from somewhere, and it shows up as
@@ -368,16 +455,17 @@ footer{padding:36px 0 52px}
         </div>
         <p>
           From there I designed against RPA's <strong>estimated (delivered)</strong> performance
-          rather than ideal — 180.9 s I<sub>sp</sub>, 1 399 m/s C*. Sizing an injector or a feed
+          rather than ideal: 180.9 s I<sub>sp</sub>, 1 399 m/s C*. Sizing an injector or a feed
           system against ideal numbers produces hardware that underdelivers on the stand.
         </p>
         <figure class="doc">
           <img src="assets/rpa_geometry.png" alt="RPA geometry output and performance summary" data-zoom>
-          <figcaption><b>RPA geometry and performance.</b> Final contour parameters — D<sub>c</sub>
+          <figcaption><b>RPA geometry and performance.</b> Final contour parameters: D<sub>c</sub>
           57.24 mm, D<sub>t</sub> 28.62 mm, D<sub>e</sub> 46.34 mm, L<sub>c</sub> 140.29 mm,
           parabolic nozzle at 13.79° / 8.00°. Exported as DXF for CAD. The orange note records the
           cooling channel height change described in step 4.</figcaption>
         </figure>
+        </div>
       </div>
     </div>
 
@@ -419,7 +507,7 @@ footer{padding:36px 0 52px}
             <h4>Changing the channel height</h4>
             <p>
               At 1.5 mm tall the coolant was moving under 2.5 m/s, which put the flow near the
-              laminar boundary. Laminar flow in a cooling channel is a real problem — without
+              laminar boundary. Laminar flow in a cooling channel is a real problem. Without
               turbulent mixing, only the fluid adjacent to the wall picks up heat and the bulk of
               the coolant does no work.
             </p>
@@ -431,7 +519,8 @@ footer{padding:36px 0 52px}
             </p>
           </div>
         </div>
-        <figure class="doc">
+        <div class="pair">
+          <figure class="doc">
           <img src="assets/rpa_thermal_table.png" alt="RPA axial thermal analysis table" data-zoom>
           <figcaption><b>RPA axial thermal results.</b> Station-by-station heat flux and wall
           temperatures. Peak at 139.28 mm: heat flux 1 729 kW/m², gas-side wall 635.98 K,
@@ -442,8 +531,9 @@ footer{padding:36px 0 52px}
           <img src="assets/thermal_fixes_notes.png" alt="Design notes on the thermal fixes" data-zoom>
           <figcaption><b>Design notes.</b> The three changes that took the throat wall from
           roughly 1 400 K to survivable, plus the helical channel approach struck through as a
-          manufacturing dead end — wall thickness at the throat fell below what LPBF can hold.</figcaption>
+          manufacturing dead end. Wall thickness at the throat fell below what LPBF can hold.</figcaption>
         </figure>
+        </div>
       </div>
     </div>
 
@@ -451,7 +541,8 @@ footer{padding:36px 0 52px}
     <div class="step">
       <div class="step-n">05</div>
       <div>
-        <h4 class="step-title">Injector design</h4>
+        <div class="tt">
+          <h4 class="step-title">Injector design</h4>
         <p class="step-tool">Spreadsheet sizing, Cheng et al. (2019) mixing model</p>
         <p>
           FUD-1 uses an ox-centered pintle. Nitrous flows down the hollow pintle post and exits
@@ -467,6 +558,13 @@ footer{padding:36px 0 52px}
           ox path. At O/F 3.0 with film cooling, the wall impingement concern that motivated
           fuel-centering is much reduced.
         </p>
+          <figure class="doc">
+          <img src="assets/injector_sizing.png" alt="Injector sizing spreadsheet for fuel annulus, oxidizer orifices, and film cooling" data-zoom>
+          <figcaption><b>Injector sizing.</b> Three separate circuits sized off the same orifice
+          equation (fuel annulus, 24 oxidizer radial holes, and 6 film cooling holes), each with
+          its own pressure, density, and discharge coefficient.</figcaption>
+        </figure>
+        </div>
         <div class="cols">
           <div class="panel">
             <h4>Orifice sizing</h4>
@@ -476,9 +574,19 @@ footer{padding:36px 0 52px}
             <ul class="clean">
               <li>Ox: 920 psia injection, <strong>720 psi ΔP</strong>, C<sub>d</sub> = 0.45</li>
               <li>Fuel: 315 psia injection, <strong>115 psi ΔP</strong>, C<sub>d</sub> = 0.6</li>
-              <li>C<sub>d</sub> = 0.45 on the ox side follows the MIT Rocket Team's simplified substitute for a full two-phase model — nitrous partially flashes to gas before it reaches the chamber</li>
+              <li>C<sub>d</sub> = 0.45 on the ox side follows the MIT Rocket Team's simplified substitute for a full two-phase model. Nitrous partially flashes to gas before it reaches the chamber</li>
               <li>Fuel annulus gap: <strong>0.154 mm</strong> on a 15 mm pintle</li>
             </ul>
+            <div class="callout warn">
+              <div class="k">Unresolved: the fuel annulus gap</div>
+              <p>
+                The gap is tight, but concentricity is the harder constraint: a pintle that sits
+                off-center gives non-uniform circumferential flow no matter how well the gap is
+                held. Since gap = A/(&pi;D), a larger pintle only makes it tighter. Options are a
+                smaller pintle, lower fuel &Delta;P, or discrete fuel orifices relying on the
+                generous L* for mixing. Still open at the design review.
+              </p>
+            </div>
           </div>
           <div class="panel">
             <h4>Mixing model</h4>
@@ -504,24 +612,6 @@ footer{padding:36px 0 52px}
             </p>
           </div>
         </div>
-        <figure class="doc">
-          <img src="assets/injector_sizing.png" alt="Injector sizing spreadsheet for fuel annulus, oxidizer orifices, and film cooling" data-zoom>
-          <figcaption><b>Injector sizing.</b> Three separate circuits sized off the same orifice
-          equation — fuel annulus, 24 oxidizer radial holes, and 6 film cooling holes — each with
-          its own pressure, density, and discharge coefficient.</figcaption>
-        </figure>
-        <div class="callout warn">
-          <div class="k">Unresolved: the fuel annulus gap</div>
-          <p>
-            The 0.154 mm annulus gap is very tight, and the harder constraint is concentricity
-            rather than the dimension itself: a pintle that sits off-center produces non-uniform
-            circumferential flow no matter how well the gap is held. Since gap = A/(πD), increasing
-            pintle diameter makes it worse rather than better, which is counterintuitive until you
-            write it down. Options remain reducing pintle diameter, lowering fuel ΔP further, or
-            moving to discrete fuel orifices and relying on the generous L* for downstream mixing.
-            This was still an open item going into the design review.
-          </p>
-        </div>
       </div>
     </div>
 
@@ -533,7 +623,7 @@ footer{padding:36px 0 52px}
         <p class="step-tool">Hand calculations, checked against SimScale FEA</p>
         <p>
           Once geometry and thermal results settled I went through the pressure-bearing structure by
-          hand. Loads are modest — 200 psi chamber, 300 psi coolant, 250 lbf axial — so closed-form
+          hand. Loads are modest (200 psi chamber, 300 psi coolant, 250 lbf axial), so closed-form
           checks are appropriate and faster than meshing everything. I ran four hoop stress cases,
           using 316L yield of <strong>170 MPa at 300 K</strong> for the outer wall (which sits at
           coolant temperature) and <strong>110 MPa at 580 K</strong> for the inner wall.
@@ -544,22 +634,22 @@ footer{padding:36px 0 52px}
         <table>
           <thead><tr><th>Case</th><th>t</th><th>Stress</th><th>SF</th></tr></thead>
           <tbody>
-            <tr><td>Outer wall, pressurized coolant — the actual load path</td><td class="num">2.0 mm</td><td class="num">32.9 MPa</td><td class="num">5.17</td></tr>
-            <tr><td>Inner wall, no coolant, no ribs — worst-case bound</td><td class="num">1.0 mm</td><td class="num">40.2 MPa</td><td class="num">2.74</td></tr>
+            <tr><td>Outer wall, pressurized coolant (the actual load path)</td><td class="num">2.0 mm</td><td class="num">32.9 MPa</td><td class="num">5.17</td></tr>
+            <tr><td>Inner wall, no coolant, no ribs (worst-case bound)</td><td class="num">1.0 mm</td><td class="num">40.2 MPa</td><td class="num">2.74</td></tr>
             <tr><td>Inner wall, net compression from coolant</td><td class="num">1.0 mm</td><td class="num">20.1 MPa</td><td class="num">5.48</td></tr>
             <tr><td>No coolant, composite wall</td><td class="num">3.0 mm</td><td class="num">13.8 MPa</td><td class="num">7.95</td></tr>
           </tbody>
         </table>
-        <p>
+        <div class="tt">
+          <p>
           The outer wall case describes normal operation. The other three are bounding cases
-          covering what happens if the coolant stops doing its job, so they should be read as limits
-          rather than as a range of expected values.
+          covering what happens if the coolant stops doing its job, so they should be read as limits.
         </p>
         <p>
           One correction along the way: I originally used 4.2 mm of composite wall by summing 1.0
           inner + 1.2 channel + 2.0 outer. The 1.2 mm channel is void, not metal, so only 3.0 mm
           carries load. Also checked: local bending of the inner wall between ribs, treated as a
-          fixed-fixed strip over the 1.5 mm channel span, comes out near <strong>0.8 MPa</strong> —
+          fixed-fixed strip over the 1.5 mm channel span, comes out near <strong>0.8 MPa</strong>,
           three orders of magnitude below the global case, so the ribs are doing their job. Injector
           bolts are 8 × M3 at 444 N per bolt against 2 264 N yield, SF 5.1.
         </p>
@@ -590,6 +680,7 @@ footer{padding:36px 0 52px}
           rather than a single yield number, because the inner and outer walls sit at very different
           temperatures.</figcaption>
         </figure>
+        </div>
       </div>
     </div>
 
@@ -597,11 +688,11 @@ footer{padding:36px 0 52px}
     <div class="step">
       <div class="step-n">07</div>
       <div>
-        <h4 class="step-title">CAD</h4>
+        <div class="tt">
+          <h4 class="step-title">CAD</h4>
         <p class="step-tool">Onshape</p>
         <p>
-          CAD only started once RPA geometry was final, so the model was built against fixed numbers
-          rather than moving ones. Workflow: import the RPA contour DXF, revolve, offset the inner
+          CAD only started once RPA geometry was final, so the model was built against fixed numbers. Workflow: import the RPA contour DXF, revolve, offset the inner
           wall, sketch the channel cross-section, extrude axially, circular pattern 38 times,
           boolean, then add the inlet and outlet collector manifold rings at each end.
         </p>
@@ -616,6 +707,7 @@ footer{padding:36px 0 52px}
           that doubles as the primary blast shield, on an aluminum extrusion frame. Solenoid valves
           and the run tank mount to the same structure.</figcaption>
         </figure>
+        </div>
       </div>
     </div>
 
@@ -626,9 +718,8 @@ footer{padding:36px 0 52px}
         <h4 class="step-title">Test stand structural analysis</h4>
         <p class="step-tool">SimScale FEA</p>
         <p>
-          The stand carries a person-safety load path, so it got a simulation rather than an
-          assumption. I modelled the full assembly — extrusion frame, gussets, and the steel thrust
-          plate — under the 250 lbf thrust load to confirm both that the structure holds and that it
+          The stand carries a person-safety load path, so I ran a simulation on it. I modelled the full assembly (extrusion frame, gussets, and the steel thrust
+          plate) under the 250 lbf thrust load to confirm both that the structure holds and that it
           is stiff enough not to corrupt the load cell readings. The thrust plate turns out to be
           the compliant element; the frame carries the load with very little participation in the
           deflection.
@@ -642,7 +733,7 @@ footer{padding:36px 0 52px}
           <figure>
             <img src="assets/teststand_fea_displacement.png" alt="Test stand displacement magnitude result" data-zoom>
             <figcaption><b>Displacement, 50× scale.</b> Peak deflection <b>5.1×10⁻³ in</b> at the
-            top center of the thrust plate, which is the expected mode — the plate bends as a panel
+            top center of the thrust plate, which is the expected mode. The plate bends as a panel
             between its supports.</figcaption>
           </figure>
         </div>
@@ -656,23 +747,28 @@ footer{padding:36px 0 52px}
     </div>
 
     <!-- 09 -->
-    <div class="step">
-      <div class="step-n">09</div>
-      <div>
+    <div class="step lead">
+      <div class="lead-col">
+        <div class="step-n">09</div>
         <h4 class="step-title">Manufacturing</h4>
         <p class="step-tool">LPBF SS316L, manual lathe and mill, CNC</p>
         <p>
           The chamber and nozzle print as a single SS316L part with the cooling channels printed in.
-          All threads, sealing faces, and small holes are post-machined — printing threads directly
+          All threads, sealing faces, and small holes are post-machined. Printing threads directly
           adds thousands to the quote, and post-machining printed parts is standard practice.
         </p>
-        <figure>
+        </div>
+
+      <figure>
           <img src="assets/injector_plate_photo.jpg" alt="Machined aluminum injector plate with stainless pintle installed" data-zoom>
           <figcaption><b>Injector plate and pintle, machined.</b> Aluminum 6061 plate with three
-          mounting lugs, the concentric O-ring lands turned in, and both drilled hole rings visible —
-          the outer ring is film cooling, the inner is the fuel circuit. The stainless pintle is
+          mounting lugs, the concentric O-ring lands turned in, and both drilled hole rings visible.
+          The outer ring is film cooling, the inner is the fuel circuit. The stainless pintle is
           installed at center with its 24 radial oxidizer holes.</figcaption>
         </figure>
+
+      <div class="lead-rest">
+        
         <div class="gallery">
           <figure>
             <video src="assets/machining_mill.mp4" poster="assets/machining_mill_poster.jpg" controls muted loop playsinline preload="metadata"></video>
@@ -693,7 +789,7 @@ footer{padding:36px 0 52px}
               <li>Injector plate and flange from 1/2" Al 6061 plate, dimensioned to exactly 12.7 mm so raw stock thickness is used as-is</li>
               <li>Order of operations fixed in advance: face, square, drill and ream, lathe the pocket and O-ring groove, then CNC the outer profile</li>
               <li>Practice parts machined in aluminum first to validate geometry and fit before cutting final stock</li>
-              <li>Film cooling holes drilled by counterboring from outside to within 0.5 mm of the wall, then breaking through with a carbide micro-bit — short remaining depth keeps the bit from snapping</li>
+              <li>Film cooling holes drilled by counterboring from outside to within 0.5 mm of the wall, then breaking through with a carbide micro-bit. Short remaining depth keeps the bit from snapping</li>
             </ul>
           </div>
           <div class="panel">
@@ -706,7 +802,7 @@ footer{padding:36px 0 52px}
             <p style="margin-top:12px">
               What I took from it was a sense of how much clamping force tapping actually needs,
               which I hadn't thought about carefully enough beforehand. The printed chamber also has
-              NPT ports that need tapping, and it is a much more awkward part to hold — thin walls
+              NPT ports that need tapping, and it is a much more awkward part to hold: thin walls
               and no flat surfaces. So I designed holding features into it directly:
               <strong>flat feet and square clamping pads on the chamber body</strong>, with matching
               pockets machined into 45° aluminum soft jaws. The pads locate the part and the pockets
@@ -731,7 +827,7 @@ footer{padding:36px 0 52px}
             2.6&nbsp;% of flow area and shifts pressure drop by roughly 5&nbsp;%, which is inside
             prediction uncertainty; a mass check is worse still, at a few grams on a part over a
             kilogram. Neither obvious verification method finds it. The method that does work is
-            flowing warm water and imaging the outside with an IR camera — 316L conducts poorly
+            flowing warm water and imaging the outside with an IR camera. 316L conducts poorly
             enough at 16 W/m·K that a blocked channel shows up as a cold streak.
           </p>
         </div>
@@ -758,6 +854,11 @@ footer{padding:36px 0 52px}
               <li><strong>0.2–0.3 mm fillets on all four internal channel corners.</strong> Costs 2–4 % of flow area, improves printability, and relieves the corner where the 243 MPa thermal stress concentrates</li>
               <li>Clamping pads and flat feet added to the chamber body so it can be held safely for post-machining</li>
             </ul>
+            <figure>
+              <img src="assets/channel_fillets.png" alt="CAD view of cooling channel openings in the chamber wall, showing rounded internal corners" data-zoom>
+              <figcaption><b>Channel corner fillets.</b> The 0.2&ndash;0.3 mm fillets on all four
+              internal corners of each cooling channel, added after the review.</figcaption>
+            </figure>
           </div>
           <div class="panel">
             <h4>An open question</h4>
@@ -767,22 +868,18 @@ footer{padding:36px 0 52px}
               saturation temperature is around 460–470 K, so boiling is plausible.
             </p>
             <p style="margin-top:12px">
-              Two-phase flow raising pressure drop is the manageable version — the stress margins
-              cover it. The version that matters is <strong>critical heat flux at the throat</strong>:
-              if bubbles merge into a continuous vapor film, the heat transfer coefficient collapses
-              in milliseconds and the throat burns through. No amount of structural margin helps
-              with that. Whether the throat sits below CHF is currently unanswered, and it is the
-              open item I most want closed before hot fire.
+              Two-phase flow raising pressure drop is manageable, since the stress margins cover it. The more serious case is <strong>critical heat flux at the throat</strong>:
+              if bubbles merge into a continuous vapor film, the heat transfer coefficient collapses in milliseconds and the throat burns through, and structural margin does not protect against that. Whether the throat sits below CHF is currently unanswered, and it is the main open item before hot fire.
             </p>
           </div>
         </div>
         <p>
-          There is also a feedback path worth naming: fuel goes from a ~350 psi regulator to a 315
+          There is also a feedback path in the feed system. Fuel goes from a ~350 psi regulator to a 315
           psia injector, so the whole tank-to-injector pressure budget is about 35 psi. If two-phase
           flow triples the regen circuit's share, injector pressure falls, fuel flow falls, the
           chamber runs oxidizer-rich and hotter, and the boiling gets worse. The cheap mitigation is
           instrumenting regen ΔP by difference between the two transducers already in the design and
-          making out-of-band ΔP an <strong>abort trigger</strong> rather than a post-test finding.
+          making out-of-band ΔP an <strong>abort trigger</strong>.
         </p>
       </div>
     </div>
@@ -795,15 +892,14 @@ footer{padding:36px 0 52px}
         <p class="step-tool">Cold flow before hot fire · Harvard EHS standard operating procedure</p>
         <p>
           The team's previous liquid engine, Mojave Sphinx, failed at its static fire attempt. The
-          documented failure modes were the starting point for FUD-1's test requirements, so each
-          one is a constraint on the design or the procedure rather than a lesson noted afterward.
+          documented failure modes were the starting point for FUD-1's test requirements, so each one is a constraint on the design or the procedure.
         </p>
         <table>
           <thead><tr><th>Mojave Sphinx failure mode</th><th>FUD-1 requirement</th></tr></thead>
           <tbody>
-            <tr><td>No cold flow test before hot fire</td><td>Cold flow with mock propellants — water for fuel, CO₂ for oxidizer — before any hot fire, to measure spray angle against prediction, find manifold fill times, and confirm no leaks</td></tr>
+            <tr><td>No cold flow test before hot fire</td><td>Cold flow with mock propellants (water for fuel, CO₂ for oxidizer) before any hot fire, to measure spray angle against prediction, find manifold fill times, and confirm no leaks</td></tr>
             <tr><td>Wrong fitting sizes found on test day</td><td>Complete fit-check of every fitting at assembly, weeks ahead</td></tr>
-            <tr><td>PTFE tape on high-pressure oxidizer threads</td><td>AN flare and O-ring face seals throughout. No tape on oxidizer service — liquid nitrous flashes at any restriction and the expanding two-phase flow shreds unbonded tape into the stream</td></tr>
+            <tr><td>PTFE tape on high-pressure oxidizer threads</td><td>AN flare and O-ring face seals throughout. No tape on oxidizer service. Liquid nitrous flashes at any restriction and the expanding two-phase flow shreds unbonded tape into the stream</td></tr>
             <tr><td>Nitrous drawn from the vapor phase</td><td>Siphon-tube bottle, with orientation and liquid draw verified during cold flow</td></tr>
             <tr><td>Inadequate test stand</td><td>Purpose-built stand, structurally checked, with remote firing and camera observation</td></tr>
           </tbody>
@@ -812,9 +908,9 @@ footer{padding:36px 0 52px}
           <div class="panel">
             <h4>Burn sequence</h4>
             <ul class="clean">
-              <li><strong>Igniter test</strong> — verify the solid igniter fires for the required duration</li>
-              <li><strong>2 s hot fire</strong> — verify ignition, choked flow at the throat, and supersonic expansion. Kept short deliberately: if regenerative cooling does not behave as modelled, 2 s is not long enough to burn through</li>
-              <li><strong>5 s hot fires</strong> — verify the engine sustains the thermal environment rather than merely surviving it</li>
+              <li><strong>Igniter test</strong>: verify the solid igniter fires for the required duration</li>
+              <li><strong>2 s hot fire</strong>: verify ignition, choked flow at the throat, and supersonic expansion. Kept short deliberately: if regenerative cooling does not behave as modelled, 2 s is not long enough to burn through</li>
+              <li><strong>5 s hot fires</strong>: verify the engine sustains the thermal environment rather than merely surviving it</li>
               <li>Fuel-lead startup, fuel opening 50–100 ms ahead of oxidizer</li>
             </ul>
           </div>
@@ -825,7 +921,7 @@ footer{padding:36px 0 52px}
               former chief engineer. It documents propellant quantities and storage, transport, PPE by
               project phase, machine-shop training status by tool and risk level, hazard
               classification for N₂O, CO₂, nitrogen and anhydrous ethanol, emergency planning, and
-              the site plan — cold flow on campus, static fire off-site at a field in Connecticut.
+              the site plan: cold flow on campus, static fire off-site at a field in Connecticut.
             </p>
             <p style="margin-top:12px">
               Abort logic is part of the safety case, not an afterthought: remote valve actuation
@@ -848,7 +944,7 @@ footer{padding:36px 0 52px}
 <section id="pangolin">
   <div class="wrap">
     <div class="sec-head">
-      <p class="sec-num">02 — Research</p>
+      <p class="sec-num">02 · Research</p>
       <div class="badge">Flying · 429 m tag detection</div>
       <h2>VHF Wildlife Tracking Drone</h2>
       <p class="proj-sub">Pangolin · Undergraduate Researcher, Harvard Microrobotics Lab</p>
@@ -886,8 +982,7 @@ footer{padding:36px 0 52px}
       <figure>
         <img src="assets/pangolin_tx_bench.jpg" alt="RadioMaster Pocket transmitter bound to the aircraft with QGroundControl open" data-zoom>
         <figcaption><b>Transmitter and ground station.</b> RadioMaster Pocket on EdgeTX with an ELRS
-        link, alongside QGroundControl. Getting a live RC channel readout here is what let me find
-        the failures below by watching bars move rather than guessing.</figcaption>
+        link, alongside QGroundControl. Getting a live RC channel readout here is what let me find the failures below by watching bars move.</figcaption>
       </figure>
       <figure>
         <img src="assets/pangolin_receiver_rig.jpg" alt="Airspy R2 SDR with Raspberry Pi receiver stack" data-zoom>
@@ -900,7 +995,7 @@ footer{padding:36px 0 52px}
       <div class="panel">
         <h4>What I did</h4>
         <ul class="clean">
-          <li>Diagnosed a completely dead RC link as <strong>EdgeTX Model Match</strong> — the receiver was bound to one model slot, so every other slot was silently inert</li>
+          <li>Diagnosed a completely dead RC link as <strong>EdgeTX Model Match</strong>. The receiver was bound to one model slot, so every other slot was silently inert</li>
           <li>Set up the flight modes and calibrated the voltage monitor, with a low-voltage failsafe that returns the aircraft to launch</li>
           <li>Bench-tested all six motors for position and rotation direction, then ran the full arm-and-throttle chain with props off</li>
           <li>Got the telemetry radio link running to the ground station wirelessly</li>
@@ -924,7 +1019,7 @@ footer{padding:36px 0 52px}
 
     <h3 style="margin-top:44px">Antenna mounting</h3>
     <p>
-      The receive antenna is an H — two dipole elements on a boom — which has to sit on the aircraft
+      The receive antenna is an H, two dipole elements on a boom, which has to sit on the aircraft
       somewhere it can see the tag. A few constraints narrowed down where it could go: the carbon
       landing legs cannot be drilled without weakening them, the elements have to stay clear of the
       prop discs, and the assembly has to be roughly symmetric so it does not shift the center of
@@ -954,7 +1049,7 @@ footer{padding:36px 0 52px}
         <img src="assets/pangolin_mount_v1_detail.jpg" alt="V1 printed clamp bolted to a carbon fiber landing leg" data-zoom>
         <figcaption><b>V1, installed.</b> Printed split clamp closing on the carbon leg with a
         machine screw, and a second perpendicular bore to carry the antenna element. No holes in the
-        carbon — the clamp works entirely in friction.</figcaption>
+        carbon. The clamp works entirely in friction.</figcaption>
       </figure>
       <figure>
         <img src="assets/pangolin_mount_v1_bench.jpg" alt="V1 clamp on the aircraft on the bench" data-zoom>
@@ -979,7 +1074,7 @@ footer{padding:36px 0 52px}
       </figure>
       <figure>
         <img src="assets/pangolin_mount_v2_printed2.jpg" alt="V2 printed mount, second view" data-zoom>
-        <figcaption><b>V2, opposite side.</b> The two functions are deliberately separated — the
+        <figcaption><b>V2, opposite side.</b> The two functions are deliberately separated: the
         permanent joint is bolted, the field-serviceable one is tied.</figcaption>
       </figure>
     </div>
@@ -993,8 +1088,7 @@ footer{padding:36px 0 52px}
       <figure>
         <img src="assets/pangolin_antenna_v2_detail.png" alt="V2 clamp joint detail" data-zoom>
         <figcaption><b>V2 joint detail.</b> Two clamp bodies per leg, one carrying the boom and one
-        the element, so the antenna geometry is fixed by the printed parts rather than by how
-        carefully it was reassembled.</figcaption>
+        the element, so the antenna geometry is fixed by the printed parts.</figcaption>
       </figure>
     </div>
 
@@ -1014,7 +1108,7 @@ footer{padding:36px 0 52px}
       </figure>
       <figure>
         <img src="assets/pangolin_range_map.png" alt="Range test path measured on a map" data-zoom>
-        <figcaption><b>Distance measured.</b> Walk-away path recorded by map pin-drop —
+        <figcaption><b>Distance measured.</b> Walk-away path recorded by map pin-drop.
         <b>429 m</b> at the far end, still holding the tag.</figcaption>
       </figure>
     </div>
@@ -1029,7 +1123,7 @@ footer{padding:36px 0 52px}
         </p>
         <p style="margin-top:12px">
           Reading the spectrum was its own step. Two steady carriers near 148.8 and 149.4 MHz look
-          exactly like a signal until you walk away from the tag and they do not change — they are
+          exactly like a signal until you walk away from the tag and they do not change. They are
           ambient RF, not the thing I was tracking.
         </p>
       </div>
@@ -1087,7 +1181,7 @@ footer{padding:36px 0 52px}
         <h4>What I'd do differently</h4>
         <p>
           Even with the good result, the test recorded a cutoff distance rather than a
-          signal-versus-distance curve, and receiver gain was not locked — signal strength in dBFS
+          signal-versus-distance curve, and receiver gain was not locked. Signal strength in dBFS
           means nothing across a walk if the gain moves underneath it.
         </p>
         <p style="margin-top:12px">
@@ -1106,7 +1200,7 @@ footer{padding:36px 0 52px}
 <section id="robobee">
   <div class="wrap">
     <div class="sec-head">
-      <p class="sec-num">03 — Research</p>
+      <p class="sec-num">03 · Research</p>
       <div class="badge">Full wings fabricated</div>
       <h2>Insect-Scale Robot Wing Fabrication</h2>
       <p class="proj-sub">RoboBee · Undergraduate Researcher, Harvard Microrobotics Lab</p>
@@ -1123,25 +1217,25 @@ footer{padding:36px 0 52px}
       lighter than the next-smallest comparable vehicle. Its wings are built by the Smart Composite
       Microstructure method: laser-cut layers of carbon fiber, adhesive, and polymer membrane,
       laminated and released as a single part. Individual features are as small as
-      <strong>95 μm</strong> — comparable to the beam width of the laser cutting them.
+      <strong>95 μm</strong>, comparable to the beam width of the laser cutting them.
     </p>
     <p>
       The goal was to reproduce that process on the lab's cheaper laser. Most of the work has been
       finding where the machine's limitations show up in the part and working out how to correct for
-      them. We kept a shared log of settings and results as we went —
+      them. We kept a shared log of settings and results as we went,
       <a href="https://docs.google.com/spreadsheets/d/1Su8qiOvCOaJeen86IWEw_9Zb73MHvABaSco70kdOzuQ/edit?gid=0#gid=0" target="_blank" rel="noopener">open the cut settings spreadsheet</a>.
     </p>
 
     <div class="gallery">
       <figure>
         <img src="assets/robobee_target_wing.jpg" alt="Reference RoboBee wings produced on the lab's high-end equipment" data-zoom>
-        <figcaption><b>Reference wings.</b> Reference wings from the lab's existing process — carbon fiber
+        <figcaption><b>Reference wings.</b> Reference wings from the lab's existing process. Carbon fiber
         spars on a transparent membrane, six to a sheet. Reproducing this on the cheap laser was the
         objective.</figcaption>
       </figure>
       <figure>
         <img src="assets/robobee_wing_final.jpg" alt="Finished wing produced on the low-cost laser, 20x microscope" data-zoom>
-        <figcaption><b>One of ours.</b> A finished wing off our process — full carbon fiber spar
+        <figcaption><b>One of ours.</b> A finished wing off our process. Full carbon fiber spar
         structure, mounting teeth intact, membrane released. 3 mm scale bar, 20× magnification.</figcaption>
       </figure>
     </div>
@@ -1165,7 +1259,7 @@ footer{padding:36px 0 52px}
       <div class="panel">
         <h4>Mylar membrane</h4>
         <p>
-          2.5 and 3.6 μm cut with little to no burn. 1.5 μm showed slight burning — thin films give
+          2.5 and 3.6 μm cut with little to no burn. 1.5 μm showed slight burning. Thin films give
           the beam nothing to absorb into, so the margin between cutting and scorching narrows.
         </p>
       </div>
@@ -1228,7 +1322,7 @@ footer{padding:36px 0 52px}
     <figure class="doc">
       <img src="assets/robobee_offset_measurement.png" alt="Microscope measurements of feature widths at successive profile offsets" data-zoom>
       <figcaption><b>Offset iteration.</b> Measured feature widths at successive profile offsets
-      against the two targets — mounting tooth 250 μm, wing spar 95 μm. Top row shows the original
+      against the two targets: mounting tooth 250 μm, wing spar 95 μm. Top row shows the original
       zero-offset cut coming in undersize.</figcaption>
     </figure>
 
@@ -1280,7 +1374,7 @@ footer{padding:36px 0 52px}
       <figure>
         <img src="assets/robobee_fixture.jpg" alt="Fixture stack-up on the steel plate under the microscope" data-zoom>
         <figcaption><b>Fixture stack-up.</b> Steel plate with support bars, FR4 interposer, adhesive,
-        then the laminate — with the alignment pins that carry registration through the flip.</figcaption>
+        then the laminate, with the alignment pins that carry registration through the flip.</figcaption>
       </figure>
       <figure>
         <img src="assets/robobee_adhesive_up_fail.jpg" alt="Wing with warped membrane from the adhesive-up attempt" data-zoom>
@@ -1292,7 +1386,7 @@ footer{padding:36px 0 52px}
     <h3 style="margin-top:44px">Cutting the full stack</h3>
     <p>
       The first attempt at a complete wing cut the membrane and carbon fiber in a single operation.
-      That burned and warped the membrane badly — unsurprising in retrospect, since a 3 μm film and a
+      That burned and warped the membrane badly, unsurprising in retrospect, since a 3 μm film and a
       170 μm fiber laminate have nothing in common thermally and there is no single recipe that suits
       both.
     </p>
@@ -1304,7 +1398,7 @@ footer{padding:36px 0 52px}
     </p>
     <figure class="doc">
       <img src="assets/robobee_lightburn.png" alt="LightBurn cut file showing six wings with colour-coded per-layer settings" data-zoom>
-      <figcaption><b>Multi-layer cut file.</b> Six wings nested with per-layer cut settings — the
+      <figcaption><b>Multi-layer cut file.</b> Six wings nested with per-layer cut settings. The
       selected layer runs 400 mm/s at 20 % power, 200 passes, 9 ns Q-pulse at 25 kHz. Registration
       circles at the top carry alignment through the flip.</figcaption>
     </figure>
@@ -1330,7 +1424,7 @@ footer{padding:36px 0 52px}
         <h4>Switching laminates</h4>
         <p>
           Switching the carbon fiber from 0-90-0 to 0-45-0 layup changed the cutting behaviour
-          immediately — the laser went through far more easily. The 0-45-0 is roughly 90 μm against
+          immediately. The laser went through far more easily. The 0-45-0 is roughly 90 μm against
           170 μm, and its lamination is better, so both thickness and bond quality were working in
           the same direction.
         </p>
@@ -1363,12 +1457,12 @@ footer{padding:36px 0 52px}
 <section id="balancer">
   <div class="wrap">
     <div class="sec-head">
-      <p class="sec-num">04 — Design &amp; Controls</p>
+      <p class="sec-num">04 · Design &amp; Controls</p>
       <div class="badge">Exhibited at the SEAS Design Fair</div>
       <h2>Two-Wheeled Self-Balancing Robot</h2>
       <p class="proj-sub">Built for the Harvard SEAS Design Fair · with Keyi Chen and Evie Eyers</p>
       <p class="sec-sub">
-        A two-wheeled robot that holds itself upright on a closed-loop controller — full
+        A two-wheeled robot that holds itself upright on a closed-loop controller: full
         sensing-to-actuation chain from a 6-axis IMU through sensor fusion and PID to a motor driver
         and geared DC motors, on a Seeeduino XIAO ESP32-S3. Designed, built, debugged, and exhibited
         over the course of a semester.
@@ -1445,7 +1539,7 @@ footer{padding:36px 0 52px}
           <li>Seeeduino XIAO ESP32-S3, I²C to the MPU6050 at 400 kHz</li>
           <li>Pololu DRV8833 driving JGA25-371 gear motors at 1:34</li>
           <li>1 kHz PWM at 8-bit resolution, output capped at 200 of 255</li>
-          <li>PWM applied <strong>directly to the direction pins</strong> — the DRV8833 has no separate PWM input, so speed and direction are encoded together in which of the two pins is driven</li>
+          <li>PWM applied <strong>directly to the direction pins</strong>. The DRV8833 has no separate PWM input, so speed and direction are encoded together in which of the two pins is driven</li>
           <li>LiPo pack through an LM2596 buck converter for the logic rail</li>
         </ul>
       </div>
@@ -1507,7 +1601,7 @@ footer{padding:36px 0 52px}
       </figure>
       <figure>
         <img src="assets/balance_tb6612.jpg" alt="TB6612FNG breakout board" data-zoom>
-        <figcaption><b>Original driver.</b> TB6612FNG breakout — 1.2 A continuous, no margin over
+        <figcaption><b>Original driver.</b> TB6612FNG breakout, 1.2 A continuous, no margin over
         stall.</figcaption>
       </figure>
       <figure>
@@ -1520,8 +1614,7 @@ footer{padding:36px 0 52px}
     <div class="callout">
       <div class="k">Testing with a raised center of mass</div>
       <p>
-        When we tested with a deliberately raised center of mass the robot stopped recovering, and
-        no amount of PID tuning changed that. Tuning only changes how the controller uses the
+        When we tested with a deliberately raised center of mass the robot stopped recovering, and PID tuning did not change that. Tuning only changes how the controller uses the
         authority it already has, so if no set of gains works it is usually a sign the problem is
         somewhere else. A higher center of mass means a longer lever arm and more restoring torque
         required, and the 1:34 motors could not deliver it quickly enough.
@@ -1556,7 +1649,7 @@ footer{padding:36px 0 52px}
 <section id="about" style="border-bottom:none">
   <div class="wrap">
     <div class="sec-head">
-      <p class="sec-num">05 — About</p>
+      <p class="sec-num">05 · About</p>
       <h2>About</h2>
     </div>
     <div class="about-grid">
@@ -1594,7 +1687,7 @@ footer{padding:36px 0 52px}
 
 <footer>
   <div class="wrap foot">
-    <div>Nicholas Bondar — Harvard SEAS ’29</div>
+    <div>Nicholas Bondar · Harvard SEAS ’29</div>
     
   </div>
 </footer>
